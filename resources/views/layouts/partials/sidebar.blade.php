@@ -36,7 +36,7 @@
                 </a>
                 <a href="{{ route('dashboard') }}" class="logo logo-dark">
                     <span class="logo-sm logocolordark">
-                        CONSIMENTOd
+                        CONSIMENTO
 
                         <!--   <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">-->
                     </span>
@@ -112,21 +112,23 @@
                 <!-- Yeni Hizmetler Menüsü Burada Bitiyor -->
 
                 <!-- Yeni Hizmetler Menüsü Burada Başlıyor -->
-                <li>
-                    <a href="#sidebarAdmin" data-bs-toggle="collapse">
-                        <i data-feather="package"></i>
-                        <span> Admin </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarAdmin">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{ route('admin.teklif.liste') }}" class="tp-link">Teklif Firmaları</a>
-                            </li>
+        @if (Auth::user()->type==1) 
+        <li>
+            <a href="#sidebarAdmin" data-bs-toggle="collapse">
+                <i data-feather="package"></i>
+                <span> Admin </span>
+                <span class="menu-arrow"></span>
+            </a>
+            <div class="collapse" id="sidebarAdmin">
+                <ul class="nav-second-level">
+                    <li>
+                        <a href="{{ route('admin.teklif.liste') }}" class="tp-link">Teklif Firmaları</a>
+                    </li>
 
-                        </ul>
-                    </div>
-                </li>
+                </ul>
+            </div>
+        </li>
+        @endif
                 <!-- Yeni Hizmetler Menüsü Burada Bitiyor -->
 
 

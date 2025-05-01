@@ -1,4 +1,21 @@
 <!-- Left Sidebar Start -->
+<style>
+    .logocolordark {
+        color: #000000 !important;
+        font-size: large !important;
+        font-weight: 700 !important;
+
+
+    }
+
+    .logocolorlight {
+        color: #ffffff !important;
+        font-size: large !important;
+        font-weight: 700 !important;
+
+    }
+</style>
+
 <div class="app-sidebar-menu">
     <div class="h-100" data-simplebar>
 
@@ -7,19 +24,26 @@
 
             <div class="logo-box">
                 <a href="{{ route('dashboard') }}" class="logo logo-light">
-                    <span class="logo-sm">
-                        <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                    <span class="logo-sm logocolorlight">
+                        CONSIMENTO
+                        <!--   <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">-->
                     </span>
-                    <span class="logo-lg">
-                        <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="24">
+                    <span class="logo-lg logocolorlight">
+                        CONSIMENTO
+
+                        <!--   <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="24">-->
                     </span>
                 </a>
                 <a href="{{ route('dashboard') }}" class="logo logo-dark">
-                    <span class="logo-sm">
-                        <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                    <span class="logo-sm logocolordark">
+                        CONSIMENTOd
+
+                        <!--   <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">-->
                     </span>
-                    <span class="logo-lg">
-                        <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="24">
+                    <span class="logo-lg logocolordark">
+                        CONSIMENTO
+
+                        <!--  <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="24">-->
                     </span>
                 </a>
             </div>
@@ -29,20 +53,31 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
-                    <a href="{{ route('dashboard') }}" >
+                    <a href="{{ route('dashboard') }}">
                         <i data-feather="home"></i>
                         <span> Anasayfa </span>
-                     </a>
-                    
+                    </a>
+
                 </li>
                 <li>
-                    <a href="{{ route('priceoffer') }}"  >
+                    <a href="{{ route('priceoffer') }}">
                         <i data-feather="dollar-sign"></i>
                         <span> Fiyat Teklifi Al </span>
-                     </a>
-                    
+                    </a>
+
                 </li>
-      
+
+                <li>
+                    <a href="{{ route('pricecalcute') }}">
+                        <i data-feather="plus-square"></i>
+                        <span> Hızlı Fiyat Hesaplama </span>
+                    </a>
+
+                </li>
+
+
+
+
 
                 <!-- Yeni Hizmetler Menüsü Burada Başlıyor -->
                 <li>
@@ -76,7 +111,32 @@
                 </li>
                 <!-- Yeni Hizmetler Menüsü Burada Bitiyor -->
 
-             </ul>
+                <!-- Yeni Hizmetler Menüsü Burada Başlıyor -->
+                <li>
+                    <a href="#sidebarAdmin" data-bs-toggle="collapse">
+                        <i data-feather="package"></i>
+                        <span> Admin </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarAdmin">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('admin.teklif.liste') }}" class="tp-link">Teklif Firmaları</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <!-- Yeni Hizmetler Menüsü Burada Bitiyor -->
+
+
+
+
+
+
+
+
+            </ul>
 
         </div>
         <!-- End Sidebar -->

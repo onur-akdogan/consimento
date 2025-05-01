@@ -25,7 +25,8 @@ class User extends Authenticatable
         'marketing_emails',
         'terms_accepted',
         'privacy_accepted',
-    ];
+        'type',
+    ]; 
 
     /**
      * The attributes that should be hidden for serialization.

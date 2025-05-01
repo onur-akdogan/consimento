@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('marketing_emails')->default(false);
             $table->boolean('terms_accepted')->default(false);
             $table->boolean('privacy_accepted')->default(false);
+            $table->integer('type')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

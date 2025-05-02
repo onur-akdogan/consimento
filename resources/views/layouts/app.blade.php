@@ -24,8 +24,9 @@
     @stack('css')
 </head>
 
+
 <!-- body start -->
-<body data-menu-color="light" data-sidebar="default">
+<body data-menu-color="light" data-sidebar="default"> 
 
     <!-- Begin page -->
     <div id="app-layout">
@@ -42,6 +43,11 @@
             <div class="content">
                 <!-- Start Content-->
                 <div class="container-fluid">
+                    @if(session('warning'))
+    <div class="alert alert-warning">
+        {{ session('warning') }}
+    </div>
+@endif
                     @yield('content')
                 </div> <!-- container-fluid -->
             </div> <!-- content -->

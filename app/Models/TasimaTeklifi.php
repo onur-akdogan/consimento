@@ -7,7 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class TasimaTeklifi extends Model
 {
-    use HasFactory;
+    protected $table = 'tasima_teklifleri';
 
-    protected $fillable = ['tasiyici', 'hizmet_tipi', 'tahmini_varis', 'fiyat'];
+    protected $fillable = [
+        'ulke',
+        'min_kg',
+        'max_kg',
+        'tasiyici',
+        'hizmet_tipi',
+        'tahmini_varis',
+        'fiyat'
+    ];
 }

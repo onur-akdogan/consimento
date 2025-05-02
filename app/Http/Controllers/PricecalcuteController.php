@@ -12,37 +12,44 @@ class PricecalcuteController extends Controller
     }
     public function hesapla(Request $request)
     {
-        // Giriş doğrulaması
         $request->validate([
+            'ulke' => 'required|string',
             'agirlik' => 'required|numeric|min:0.1',
-            'en' => 'required|numeric|min:1',
-            'boy' => 'required|numeric|min:1',
-            'yukseklik' => 'required|numeric|min:1',
+            'en' => 'nullable|numeric|min:1', 
+            'boy' => 'nullable|numeric|min:1',
+            'yukseklik' => 'nullable|numeric|min:1',
         ]);
     
-        // Girdi verileri
+        $ulke = $request->input('ulke');
         $agirlik = $request->input('agirlik');
         $en = $request->input('en');
         $boy = $request->input('boy');
         $yukseklik = $request->input('yukseklik');
     
-        // Hacimsel ağırlık hesaplama (Desi): cm cinsinden / 3000
-        $hacimselAgirlik = ($en * $boy * $yukseklik) / 3000;
+        $hacimselAgirlik = null;
+        $ucreteEsasAgirlik = $agirlik;
     
-        // Ücrete esas ağırlık
-        $ucreteEsasAgirlik = max($agirlik, $hacimselAgirlik);
-     
-        // Veritabanından fiyat tekliflerini çek (Query Builder ile)
-        $fiyatlar = DB::table('tasima_teklifleri')->get(); // stdClass koleksiyonu
+        if ($en && $boy && $yukseklik) {
+            $hacimselAgirlik = ($en * $boy * $yukseklik) / 3000;
+            $ucreteEsasAgirlik = max($agirlik, $hacimselAgirlik);
+        }
     
-        return view('pages.pricecalcute', [
+        // Adminin belirlediği fiyatlardan uygun olanları al
+        $fiyatlar = TasimaTeklifi::where('ulke', $ulke)
+            ->where('min_kg', '<=', $ucreteEsasAgirlik)
+            ->where('max_kg', '>=', $ucreteEsasAgirlik)
+            ->orderBy('fiyat') 
+            ->get();
+            
+         return view('pages.pricecalcute', [
             'agirlik' => $agirlik,
             'en' => $en,
             'boy' => $boy,
             'yukseklik' => $yukseklik,
-            'hacimselAgirlik' => number_format($hacimselAgirlik, 2),
+            'hacimselAgirlik' => $hacimselAgirlik ? number_format($hacimselAgirlik, 2) : null,
             'ucreteEsasAgirlik' => number_format($ucreteEsasAgirlik, 2),
-            'fiyatlar' => $fiyatlar // Blade içinde -> ile erişilmeli
+            'fiyatlar' => $fiyatlar
         ]);
     }
+    
 }

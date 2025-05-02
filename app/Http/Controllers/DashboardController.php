@@ -30,8 +30,17 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index(): View
+    public function index()
     {
+        $user = auth()->user();
+
+        $companies = $user->companies; // ilişki üzerinden alırsan daha verimli
+    
+        if ($companies->isEmpty()) {
+            return redirect()->route('companies.index')->with('warning', 'İlk olarak firma eklemelisiniz.');
+        }
+    
+
         // Get data for dashboard widgets
         $totalUsers = User::count();
         

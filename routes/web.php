@@ -7,6 +7,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PriceOfferController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FiyatController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\AddressController;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +48,17 @@ Route::post('/admin/teklif-guncelle/{id}', [AdminController::class, 'teklifGunce
 
 // Sil
 Route::post('/admin/teklif-sil/{id}', [AdminController::class, 'teklifSil'])->name('admin.teklif.sil');
+Route::get('/companies', [CompanyController::class, 'index'])->name('companies.index');
+Route::get('/companies/create', [CompanyController::class, 'create'])->name('companies.create');
+Route::post('/companies', [CompanyController::class, 'store'])->name('companies.store');
 
+
+Route::get('/addresses/{type?}', [AddressController::class, 'index'])
+    ->name('addresses.index')
+    ->where('type', 'sender|receiver')
+    ->middleware('auth'); // oturum kontrolü varsa
+Route::get('/addresses/{type}/create', [AddressController::class, 'create'])->name('addresses.create');
+Route::post('/addresses/{type}', [AddressController::class, 'store'])->name('addresses.store');
 
 });
 

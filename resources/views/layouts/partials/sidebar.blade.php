@@ -74,9 +74,19 @@
                     </a>
 
                 </li>
+                <li>
+                    <a href="{{ route('companies.index') }}">
+                        <i data-feather="briefcase"></i>
+                        <span> Firmalarım </span>
+                    </a>
 
-
-
+                </li>
+                <li>
+                    <a href="{{ route('addresses.index', ['type' => 'sender']) }}">
+                        <i data-feather="map-pin"></i>
+                        <span> Adreslerim </span>
+                    </a>
+                </li>
 
 
                 <!-- Yeni Hizmetler Menüsü Burada Başlıyor -->
@@ -112,23 +122,23 @@
                 <!-- Yeni Hizmetler Menüsü Burada Bitiyor -->
 
                 <!-- Yeni Hizmetler Menüsü Burada Başlıyor -->
-        @if (Auth::user()->type==1) 
-        <li>
-            <a href="#sidebarAdmin" data-bs-toggle="collapse">
-                <i data-feather="package"></i>
-                <span> Admin </span>
-                <span class="menu-arrow"></span>
-            </a>
-            <div class="collapse" id="sidebarAdmin">
-                <ul class="nav-second-level">
+                @if (Auth::user()->type == 1)
                     <li>
-                        <a href="{{ route('admin.teklif.liste') }}" class="tp-link">Teklif Firmaları</a>
-                    </li>
+                        <a href="#sidebarAdmin" data-bs-toggle="collapse">
+                            <i data-feather="package"></i>
+                            <span> Admin </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarAdmin">
+                            <ul class="nav-second-level">
+                                <li>
+                                    <a href="{{ route('admin.teklif.liste') }}" class="tp-link">Teklif Firmaları</a>
+                                </li>
 
-                </ul>
-            </div>
-        </li>
-        @endif
+                            </ul>
+                        </div>
+                    </li>
+                @endif
                 <!-- Yeni Hizmetler Menüsü Burada Bitiyor -->
 
 

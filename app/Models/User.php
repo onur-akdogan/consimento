@@ -50,4 +50,8 @@ class User extends Authenticatable
         'terms_accepted' => 'boolean',
         'privacy_accepted' => 'boolean',
     ];
+    public function companies()
+{
+    return $this->hasMany(\App\Models\Company::class);
+}
 }

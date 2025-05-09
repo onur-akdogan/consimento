@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Models\Ulke;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function teklifForm()
     {
-        return view('admin.teklif-ekle');
+        $ulkes = Ulke::orderBy('ad')->get();
+
+        return view('admin.teklif-ekle',compact("ulkes"));
     }
 
     public function teklifKaydet(Request $request)
@@ -102,4 +105,6 @@ class AdminController extends Controller
 
         return redirect()->route('admin.teklif.liste')->with('success', 'Taşıma teklifi silindi.');
     }
+    
+    
 }

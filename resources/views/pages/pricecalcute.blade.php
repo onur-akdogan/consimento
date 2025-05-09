@@ -16,10 +16,11 @@
                     <label for="ulke" class="form-label">Nereye</label>
                     <select class="form-select" id="ulke" name="ulke" required>
                         <option value="">Seçiniz</option>
-                        <option value="ABD" {{ old('ulke', $ulke ?? '') == 'ABD' ? 'selected' : '' }}>Amerika Birleşik Devletleri</option>
-                        <option value="Almanya" {{ old('ulke', $ulke ?? '') == 'Almanya' ? 'selected' : '' }}>Almanya</option> 
-                        <option value="Fransa" {{ old('ulke', $ulke ?? '') == 'Fransa' ? 'selected' : '' }}>Fransa</option>
-                    </select>
+                         @foreach ($ulkes as $ulkem)
+                        <option value="{{ $ulkem->ad }}" {{ old('ulke', $ulke ?? '') == $ulkem->ad ? 'selected' : '' }}>{{ $ulkem->ad }}
+                        </option>
+                    @endforeach
+                      </select>
                 </div>
                 <div class="col-md-6">
                     <label for="agirlik" class="form-label">Ağırlık (kg)</label>

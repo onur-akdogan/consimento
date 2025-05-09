@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TasimaTeklifi;
+use App\Models\Ulke;
 use DB;
 class PricecalcuteController extends Controller
 {
     public function index(){
-        return view("pages.pricecalcute");
+        $ulkes=Ulke::get();
+
+        return view("pages.pricecalcute",compact("ulkes"));
     }
     public function hesapla(Request $request)
     {
@@ -19,7 +22,8 @@ class PricecalcuteController extends Controller
             'boy' => 'nullable|numeric|min:1',
             'yukseklik' => 'nullable|numeric|min:1',
         ]);
-    
+        $ulkes=Ulke::get();
+
         $ulke = $request->input('ulke');
         $agirlik = $request->input('agirlik');
         $en = $request->input('en');
@@ -48,7 +52,10 @@ class PricecalcuteController extends Controller
             'yukseklik' => $yukseklik,
             'hacimselAgirlik' => $hacimselAgirlik ? number_format($hacimselAgirlik, 2) : null,
             'ucreteEsasAgirlik' => number_format($ucreteEsasAgirlik, 2),
-            'fiyatlar' => $fiyatlar
+            'fiyatlar' => $fiyatlar,
+            'ulkes' => $ulkes,
+
+            
         ]);
     }
     

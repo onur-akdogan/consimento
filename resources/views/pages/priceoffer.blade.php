@@ -137,10 +137,10 @@
                             <label class="form-label">Ülke</label>
                             <select class="form-select" id="country-input">
                                 <option value="">Seçiniz</option>
-                                <option value="Türkiye">Türkiye</option>
-                                <option value="Almanya">Almanya</option>
-                                <option value="ABD">ABD</option>
-                                <option value="Fransa">Fransa</option>
+@foreach ($ulkes as $ulke)
+<option value={{$ulke->ad}}>{{$ulke->ad}}</option>
+
+@endforeach
                             </select>
                         </div>
                     </div>

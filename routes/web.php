@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FiyatController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\UlkeController;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -59,6 +60,14 @@ Route::get('/addresses/{type?}', [AddressController::class, 'index'])
     ->middleware('auth'); // oturum kontrolü varsa
 Route::get('/addresses/{type}/create', [AddressController::class, 'create'])->name('addresses.create');
 Route::post('/addresses/{type}', [AddressController::class, 'store'])->name('addresses.store');
+
+Route::get('/ulkeler', [UlkeController::class, 'index'])->name('ulkeler.index');
+Route::post('/ulkeler', [UlkeController::class, 'store'])->name('ulkeler.store');
+Route::delete('/ulkeler/{id}', [UlkeController::class, 'destroy'])->name('ulkeler.destroy');
+
+
+
+
 
 });
 

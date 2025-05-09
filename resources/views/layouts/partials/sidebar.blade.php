@@ -134,9 +134,18 @@
                                 <li>
                                     <a href="{{ route('admin.teklif.liste') }}" class="tp-link">Teklif Firmaları</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('ulkeler.index') }}" class="tp-link">Ülkeler</a>
+                                </li>
 
                             </ul>
                         </div>
+
+                      
+
+
+                        
+
                     </li>
                 @endif
                 <!-- Yeni Hizmetler Menüsü Burada Bitiyor -->

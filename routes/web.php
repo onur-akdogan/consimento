@@ -10,7 +10,7 @@ use App\Http\Controllers\FiyatController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\UlkeController;
-
+ 
 
 use Illuminate\Support\Facades\Auth;
 /*
@@ -18,6 +18,18 @@ use Illuminate\Support\Facades\Auth;
 | Web Routes
 |--------------------------------------------------------------------------
 */ 
+
+// ... diğer rotalar
+
+Route::post('/fiyat-teklifi-gonder', [PriceOfferController::class, 'store'])->middleware('auth')->name('price.offer.store');
+
+// Fiyat teklifi sayfasını gösteren rota da burada olabilir
+Route::get('/price-offer', function () {
+    return view('priceoffer');
+})->middleware('auth')->name('price.offer.create');
+Route::get('/price-offer-admin', [PriceOfferController::class, 'indexadmin'])
+    ->middleware('auth')
+    ->name('price.offers.indexadmin');
 
 // Authentication Routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

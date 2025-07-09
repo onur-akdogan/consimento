@@ -13,7 +13,7 @@
                 </div>
 
                 <form id="quote-form">
-                        @csrf
+                    @csrf
 
                     <!-- Progress Bar -->
                     <div class="progress mb-4">
@@ -41,6 +41,34 @@
                                     <div class="fw-semibold">Kargo ve Paket Taşımacılığı</div>
                                 </div>
                             </div>
+                            <div class="col-6 col-md-4 mb-3">
+                                <div class="card text-center p-3 h-100 option-card" data-type="Komple Tır">
+                                    <div class="icon-container">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck">
+                                            <!-- TIR Kabini -->
+                                            <rect x="2" y="6" width="6" height="8" rx="1"></rect>
+                                            <!-- TIR Dorsesi/Römorku -->
+                                            <rect x="8" y="4" width="13" height="10" rx="1"></rect>
+                                            <!-- Bağlantı -->
+                                            <line x1="8" y1="9" x2="8" y2="9"></line>
+                                            <!-- Tekerler -->
+                                            <circle cx="5" cy="16" r="2"></circle>
+                                            <circle cx="12" cy="16" r="2"></circle>
+                                            <circle cx="18" cy="16" r="2"></circle>
+                                            <!-- TIR Detayları -->
+                                            <line x1="9" y1="7" x2="20" y2="7"></line>
+                                            <line x1="9" y1="11" x2="20" y2="11"></line>
+                                        </svg>
+                                    </div>
+                                    <div class="fw-semibold">Komple Tır</div>
+                                </div>
+                            </div>
+
+
+
+
                             <div class="col-6 col-md-4 mb-3">
                                 <div class="card text-center p-3 h-100 option-card" data-type="Ticari Eşya Taşımacılığı">
                                     <div class="icon-container">
@@ -233,6 +261,261 @@
                             </div>
                         </div>
 
+                        <!-- Kargo ve Paket Taşımacılığı Formu -->
+                        <div class="form-section d-none" id="tir-form">
+                            <div class="row g-3">
+                                <!-- Yük Bilgileri -->
+                                <div class="col-12">
+                                    <h6 class="text-primary fw-bold mb-3">Yük Bilgileri</h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Yükün Türü</label>
+                                    <select class="form-select" id="tir-cargo-type">
+                                        <option value="">Seçiniz</option>
+                                        <option value="mobilya">Mobilya</option>
+                                        <option value="gida">Gıda</option>
+                                        <option value="tekstil">Tekstil</option>
+                                        <option value="kimyasal">Kimyasal Madde</option>
+                                        <option value="elektronik">Elektronik</option>
+                                        <option value="otomotiv">Otomotiv</option>
+                                        <option value="diger">Diğer</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Tehlikeli Madde (ADR)</label>
+                                    <select class="form-select" id="tir-adr-status">
+                                        <option value="">Seçiniz</option>
+                                        <option value="yok">Yok</option>
+                                        <option value="var">Var</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Net Ağırlık (kg)</label>
+                                    <input type="number" class="form-control" id="tir-net-weight" placeholder="kg">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Brüt Ağırlık (kg)</label>
+                                    <input type="number" class="form-control" id="tir-gross-weight" placeholder="kg">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Hacim (m³)</label>
+                                    <input type="number" step="0.1" class="form-control" id="tir-volume"
+                                        placeholder="m³">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Palet Sayısı</label>
+                                    <input type="number" class="form-control" id="tir-pallet-count" placeholder="Adet">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Palet Türü</label>
+                                    <select class="form-select" id="tir-pallet-type">
+                                        <option value="">Seçiniz</option>
+                                        <option value="euro">Euro Palet</option>
+                                        <option value="blok">Blok Palet</option>
+                                        <option value="amerikan">Amerikan Palet</option>
+                                        <option value="diger">Diğer</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Ambalaj Şekli</label>
+                                    <select class="form-select" id="tir-packaging">
+                                        <option value="">Seçiniz</option>
+                                        <option value="dokme">Dökme</option>
+                                        <option value="paletli">Paletli</option>
+                                        <option value="kasali">Kasalı</option>
+                                        <option value="diger">Diğer</option>
+                                    </select>
+                                </div>
+
+                                <!-- Yükleme/Boşaltma Şekli -->
+                                <div class="col-12">
+                                    <h6 class="text-primary fw-bold mb-3 mt-4">Yükleme/Boşaltma Şekli</h6>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Yükleme Şekli</label>
+                                    <select class="form-select" id="tir-loading-method">
+                                        <option value="">Seçiniz</option>
+                                        <option value="forklift">Forklift</option>
+                                        <option value="rampa">Rampa</option>
+                                        <option value="vinc">Vinç</option>
+                                        <option value="manuel">Manuel</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Boşaltma Şekli</label>
+                                    <select class="form-select" id="tir-unloading-method">
+                                        <option value="">Seçiniz</option>
+                                        <option value="forklift">Forklift</option>
+                                        <option value="rampa">Rampa</option>
+                                        <option value="vinc">Vinç</option>
+                                        <option value="manuel">Manuel</option>
+                                    </select>
+                                </div>
+
+                                <!-- Yükleme Bilgileri -->
+                                <div class="col-12">
+                                    <h6 class="text-primary fw-bold mb-3 mt-4">Yükleme Bilgileri</h6>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Yükleme Ülkesi</label>
+                                    <input type="text" class="form-control" id="tir-loading-country"
+                                        placeholder="Ülke">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Yükleme Şehri</label>
+                                    <input type="text" class="form-control" id="tir-loading-city"
+                                        placeholder="Şehir">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Yükleme Adresi (Açık Adres)</label>
+                                    <textarea class="form-control" id="tir-loading-address" rows="2" placeholder="Detaylı adres"></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Yükleme Tarihi</label>
+                                    <input type="date" class="form-control" id="tir-loading-date">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Yükleme Saati</label>
+                                    <input type="time" class="form-control" id="tir-loading-time">
+                                </div>
+
+                                <!-- Boşaltma Bilgileri -->
+                                <div class="col-12">
+                                    <h6 class="text-primary fw-bold mb-3 mt-4">Boşaltma Bilgileri</h6>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Boşaltma Ülkesi</label>
+                                    <input type="text" class="form-control" id="tir-unloading-country"
+                                        placeholder="Ülke">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Boşaltma Şehri</label>
+                                    <input type="text" class="form-control" id="tir-unloading-city"
+                                        placeholder="Şehir">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Boşaltma Adresi (Açık Adres)</label>
+                                    <textarea class="form-control" id="tir-unloading-address" rows="2" placeholder="Detaylı adres"></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Boşaltma Tarihi Tahmini</label>
+                                    <input type="date" class="form-control" id="tir-unloading-date">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Gümrük İşlemleri</label>
+                                    <select class="form-select" id="tir-customs">
+                                        <option value="">Seçiniz</option>
+                                        <option value="musteri">Müşteri</option>
+                                        <option value="sirket">Taşıyıcı Firma</option>
+                                    </select>
+                                </div>
+
+                                <!-- Araç Talebi -->
+                                <div class="col-12">
+                                    <h6 class="text-primary fw-bold mb-3 mt-4">Araç Talebi ve Operasyonel Bilgiler</h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Araç Türü</label>
+                                    <select class="form-select" id="tir-vehicle-type">
+                                        <option value="">Seçiniz</option>
+                                        <option value="tenteli">Tenteli TIR</option>
+                                        <option value="frigorifik">Frigorifik/Frigo</option>
+                                        <option value="mega">Mega</option>
+                                        <option value="kapali-kasa">Kapalı Kasa</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Şoför Sayısı</label>
+                                    <select class="form-select" id="tir-driver-count">
+                                        <option value="">Seçiniz</option>
+                                        <option value="tek">Tek Şoför</option>
+                                        <option value="cift">Çift Şoför</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Transit Süresi Tahmini (Gün)</label>
+                                    <input type="number" class="form-control" id="tir-transit-days" placeholder="Gün">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Kapalı Dorsede Açılış</label>
+                                    <select class="form-select" id="tir-trailer-opening">
+                                        <option value="">Seçiniz</option>
+                                        <option value="var">Var</option>
+                                        <option value="yok">Yok</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Gümrüklü/Gümrüksüz Taşıma</label>
+                                    <select class="form-select" id="tir-customs-transport">
+                                        <option value="">Seçiniz</option>
+                                        <option value="gumruklu">Gümrüklü</option>
+                                        <option value="gumruksuz">Gümrüksüz</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">İhracat Beyannamesi ve CMR Belgesi</label>
+                                    <select class="form-select" id="tir-documents">
+                                        <option value="">Seçiniz</option>
+                                        <option value="musteri">Müşteri</option>
+                                        <option value="tasiyici">Taşıyıcı Firma</option>
+                                    </select>
+                                </div>
+
+                                <!-- Ücret ve Fatura Bilgileri -->
+                                <div class="col-12">
+                                    <h6 class="text-primary fw-bold mb-3 mt-4">Ücret ve Fatura Bilgileri</h6>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Navlun (Taşıma) Ücreti</label>
+                                    <input type="number" step="0.01" class="form-control" id="tir-transport-fee"
+                                        placeholder="Ücret">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Para Birimi</label>
+                                    <select class="form-select" id="tir-currency">
+                                        <option value="">Seçiniz</option>
+                                        <option value="EUR">EUR</option>
+                                        <option value="USD">USD</option>
+                                        <option value="TRY">TRY</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Firma Adı</label>
+                                    <input type="text" class="form-control" id="tir-company-name"
+                                        placeholder="Firma Adı">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Vergi Numarası</label>
+                                    <input type="text" class="form-control" id="tir-tax-number"
+                                        placeholder="Vergi No">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Vergi Dairesi</label>
+                                    <input type="text" class="form-control" id="tir-tax-office"
+                                        placeholder="Vergi Dairesi">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Ödeme Şekli ve Süresi</label>
+                                    <select class="form-select" id="tir-payment-terms">
+                                        <option value="">Seçiniz</option>
+                                        <option value="pesin">Peşin</option>
+                                        <option value="15-gun">15 Gün Vadeli</option>
+                                        <option value="30-gun">30 Gün Vadeli</option>
+                                        <option value="45-gun">45 Gün Vadeli</option>
+                                        <option value="60-gun">60 Gün Vadeli</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Fatura Adresi</label>
+                                    <textarea class="form-control" id="tir-invoice-address" rows="2" placeholder="Fatura adresi"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
                         <!-- Ticari Eşya Taşımacılığı Formu -->
                         <div class="form-section d-none" id="ticari-form">
                             <div class="row g-3">
@@ -265,18 +548,32 @@
                                     <input type="text" class="form-control" id="ticari-to"
                                         placeholder="Varış Noktası">
                                 </div>
+                                <!-- Gümrük Bilgileri -->
+                                <div class="col-12">
+                                    <h6 class="text-primary fw-bold mb-3 mt-4">Bilgileri</h6>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Çıkış Gümrüğü</label>
+                                    <input type="text" class="form-control" id="gumruk-from"
+                                        placeholder="Gümrük Çıkış Noktası">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Varış Gümrüğü</label>
+                                    <input type="text" class="form-control" id="gumruk-to"
+                                        placeholder="Gümrük Varış Noktası">
+                                </div>
 
                                 <!-- Eşya Bilgileri -->
                                 <div class="col-12">
-                                    <h6 class="text-primary fw-bold mb-3 mt-4">Eşya Bilgileri</h6>
+                                    <h6 class="text-primary fw-bold mb-3 mt-4">Ticari Mal Bilgileri</h6>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Eşya Türü</label>
+                                    <label class="form-label">Ticari Mal Türü</label>
                                     <input type="text" class="form-control" id="ticari-goods-type"
                                         placeholder="Eşya türü">
                                 </div>
                                 <div class="col-md-8">
-                                    <label class="form-label">Eşya Açıklaması</label>
+                                    <label class="form-label">Ticari Mal Açıklaması</label>
                                     <input type="text" class="form-control" id="ticari-goods-desc"
                                         placeholder="Detaylı açıklama">
                                 </div>
@@ -747,7 +1044,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label">Tahmini Ağırlık (kg)</label>
-                                    <input type="number" class="form-control" id="konteyner-weight" placeholder="kg">
+                                    <input type="number" class="form-control" id="konteyner-weight"
+                                        placeholder="kg">
                                 </div>
 
                                 <!-- Yük Bilgileri -->
@@ -948,152 +1246,164 @@
             max-height: 70vh;
             overflow-y: auto;
             padding: 20px;
-             border-radius: 8px;
-         }
+            border-radius: 8px;
+        }
     </style>
-    
+
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Form variables
-    let selectedGonderiType = '';
-    let currentStep = 1;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form variables
+            let selectedGonderiType = '';
+            let currentStep = 1;
 
-    // Select all option cards
-    const optionCards = document.querySelectorAll('.option-card');
+            // Select all option cards
+            const optionCards = document.querySelectorAll('.option-card');
 
-    // Add click event listener to all option cards
-    optionCards.forEach(card => {
-        card.addEventListener('click', function() {
-            optionCards.forEach(c => c.classList.remove('selected'));
-            this.classList.add('selected');
-            selectedGonderiType = this.getAttribute('data-type');
-            console.log('Selected type:', selectedGonderiType);
-        });
-    });
-
-    // Navigation buttons
-    document.getElementById('step1-next').addEventListener('click', () => goToStep(2));
-    document.getElementById('step2-prev').addEventListener('click', () => goToStep(1));
-    document.getElementById('step2-next').addEventListener('click', () => goToStep(3));
-    document.getElementById('step3-prev').addEventListener('click', () => goToStep(2));
-    // YENİ: submitForm fonksiyonu artık tanımlı olduğu için bu satır hatasız çalışacak.
-    document.getElementById('submit-form').addEventListener('click', submitForm);
-
-    // Step navigation function
-    function goToStep(step) {
-        // Validation for step 1
-        if (step === 2 && !selectedGonderiType) {
-            Swal.fire("Lütfen bir gönderi türü seçin!");
-            return;
-        }
-
-        // EKLENDİ: Validation for step 2 before going to step 3
-        if (step === 3 && !validateStep2()) {
-            // Doğrulama başarısız olursa fonksiyondan çık
-            return;
-        }
-
-        if (step === 2) {
-            document.getElementById('selected-type-display').textContent = selectedGonderiType;
-            showRelevantForm();
-        }
-
-        if (step === 3) {
-            updateSummary();
-        }
-
-        document.querySelectorAll('.step-content').forEach(content => {
-            content.classList.add('d-none');
-        });
-
-        document.getElementById(`step-${step}-content`).classList.remove('d-none');
-        document.getElementById('progress-bar').style.width = `${(step / 3) * 100}%`;
-        currentStep = step;
-        console.log('Step changed to:', currentStep);
-    }
-
-    // EKLENDİ: 2. Adımdaki formların temel doğrulamasını yapan fonksiyon
-    function validateStep2() {
-        let isValid = true;
-        let requiredFields = []; // Kontrol edilecek gerekli alanların ID'leri
-
-        // Seçilen gönderi türüne göre hangi alanların zorunlu olduğunu belirle
-        switch (selectedGonderiType) {
-            case 'Kargo ve Paket Taşımacılığı':
-                requiredFields = ['kargo-from', 'kargo-to', 'kargo-weight'];
-                break;
-            case 'Ticari Eşya Taşımacılığı':
-                requiredFields = ['ticari-from', 'ticari-to', 'ticari-total-weight'];
-                break;
-            case 'Yeni Mobilya Taşımacılığı':
-                requiredFields = ['mobilya-from', 'mobilya-to', 'mobilya-weight'];
-                break;
-             case 'Uluslararası Evden Eve Taşımacılık':
-                requiredFields = ['evden-from', 'evden-to', 'evden-volume'];
-                break;
-            case 'Araç ve Motosiklet Taşımacılığı':
-                requiredFields = ['arac-from', 'arac-to', 'arac-brand', 'arac-model'];
-                break;
-            case 'Konteyner Taşımacılığı':
-                requiredFields = ['konteyner-destination-country', 'konteyner-origin-port', 'konteyner-destination-port'];
-                break;
-        }
-
-        // Gerekli alanları kontrol et
-        for (const fieldId of requiredFields) {
-            const field = document.getElementById(fieldId);
-            if (!field || !field.value.trim()) {
-                isValid = false;
-                // Hangi alanın eksik olduğunu belirtmek için daha iyi bir hata mesajı
-                const fieldLabel = field ? (field.previousElementSibling ? field.previousElementSibling.innerText : fieldId) : fieldId;
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Eksik Bilgi',
-                    text: `Lütfen "${fieldLabel}" alanını doldurun.`
+            // Add click event listener to all option cards
+            optionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    optionCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedGonderiType = this.getAttribute('data-type');
+                    console.log('Selected type:', selectedGonderiType);
                 });
-                break; // İlk hatada döngüden çık
+            });
+
+            // Navigation buttons
+            document.getElementById('step1-next').addEventListener('click', () => goToStep(2));
+            document.getElementById('step2-prev').addEventListener('click', () => goToStep(1));
+            document.getElementById('step2-next').addEventListener('click', () => goToStep(3));
+            document.getElementById('step3-prev').addEventListener('click', () => goToStep(2));
+            // YENİ: submitForm fonksiyonu artık tanımlı olduğu için bu satır hatasız çalışacak.
+            document.getElementById('submit-form').addEventListener('click', submitForm);
+
+            // Step navigation function
+            function goToStep(step) {
+                // Validation for step 1
+                if (step === 2 && !selectedGonderiType) {
+                    Swal.fire("Lütfen bir gönderi türü seçin!");
+                    return;
+                }
+
+                // EKLENDİ: Validation for step 2 before going to step 3
+                if (step === 3 && !validateStep2()) {
+                    // Doğrulama başarısız olursa fonksiyondan çık
+                    return;
+                }
+
+                if (step === 2) {
+                    document.getElementById('selected-type-display').textContent = selectedGonderiType;
+                    showRelevantForm();
+                }
+
+                if (step === 3) {
+                    updateSummary();
+                }
+
+                document.querySelectorAll('.step-content').forEach(content => {
+                    content.classList.add('d-none');
+                });
+
+                document.getElementById(`step-${step}-content`).classList.remove('d-none');
+                document.getElementById('progress-bar').style.width = `${(step / 3) * 100}%`;
+                currentStep = step;
+                console.log('Step changed to:', currentStep);
             }
-        }
 
-        return isValid;
-    }
+            // EKLENDİ: 2. Adımdaki formların temel doğrulamasını yapan fonksiyon
+            function validateStep2() {
+                let isValid = true;
+                let requiredFields = []; // Kontrol edilecek gerekli alanların ID'leri
+
+                // Seçilen gönderi türüne göre hangi alanların zorunlu olduğunu belirle
+                switch (selectedGonderiType) {
+                    case 'Kargo ve Paket Taşımacılığı':
+                        requiredFields = ['kargo-from', 'kargo-to', 'kargo-weight'];
+                        break;
+                    case 'Komple Tır':
+                        requiredFields = [];
+                        break;
+
+                    case 'Ticari Eşya Taşımacılığı':
+                        requiredFields = ['ticari-from', 'ticari-to', 'ticari-total-weight'];
+                        break;
+                    case 'Yeni Mobilya Taşımacılığı':
+                        requiredFields = ['mobilya-from', 'mobilya-to', 'mobilya-weight'];
+                        break;
+                    case 'Uluslararası Evden Eve Taşımacılık':
+                        requiredFields = ['evden-from', 'evden-to', 'evden-volume'];
+                        break;
+                    case 'Araç ve Motosiklet Taşımacılığı':
+                        requiredFields = ['arac-from', 'arac-to', 'arac-brand', 'arac-model'];
+                        break;
+                    case 'Konteyner Taşımacılığı':
+                        requiredFields = ['konteyner-destination-country', 'konteyner-origin-port',
+                            'konteyner-destination-port'
+                        ];
+                        break;
+                }
+
+                // Gerekli alanları kontrol et
+                for (const fieldId of requiredFields) {
+                    const field = document.getElementById(fieldId);
+                    if (!field || !field.value.trim()) {
+                        isValid = false;
+                        // Hangi alanın eksik olduğunu belirtmek için daha iyi bir hata mesajı
+                        const fieldLabel = field ? (field.previousElementSibling ? field.previousElementSibling
+                            .innerText : fieldId) : fieldId;
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Eksik Bilgi',
+                            text: `Lütfen "${fieldLabel}" alanını doldurun.`
+                        });
+                        break; // İlk hatada döngüden çık
+                    }
+                }
+
+                return isValid;
+            }
 
 
-    // Show relevant form based on selected type
-    function showRelevantForm() {
-        document.querySelectorAll('.form-section').forEach(form => {
-            form.classList.add('d-none');
-        });
-        switch (selectedGonderiType) {
-            case 'Kargo ve Paket Taşımacılığı':
-                document.getElementById('kargo-form').classList.remove('d-none');
-                break;
-            case 'Ticari Eşya Taşımacılığı':
-                document.getElementById('ticari-form').classList.remove('d-none');
-                break;
-            case 'Yeni Mobilya Taşımacılığı':
-                document.getElementById('mobilya-form').classList.remove('d-none');
-                break;
-            case 'Uluslararası Evden Eve Taşımacılık':
-                document.getElementById('evden-eve-form').classList.remove('d-none');
-                break;
-            case 'Araç ve Motosiklet Taşımacılığı':
-                document.getElementById('arac-form').classList.remove('d-none');
-                break;
-            case 'Konteyner Taşımacılığı':
-                document.getElementById('konteyner-form').classList.remove('d-none');
-                break;
-        }
-    }
+            // Show relevant form based on selected type
+            function showRelevantForm() {
+                document.querySelectorAll('.form-section').forEach(form => {
+                    form.classList.add('d-none');
+                });
+                switch (selectedGonderiType) {
+                    case 'Kargo ve Paket Taşımacılığı':
+                        document.getElementById('kargo-form').classList.remove('d-none');
+                        break;
+                    case 'Komple Tır':
+                        document.getElementById('tir-form').classList.remove('d-none');
+                        break;
 
-    // Update summary
-    function updateSummary() {
-        document.getElementById('summary-gonderi-text').textContent = selectedGonderiType;
-        let summaryHTML = '<strong>Detaylar:</strong><br>';
 
-        switch (selectedGonderiType) {
-            case 'Kargo ve Paket Taşımacılığı':
-                summaryHTML += `
+                    case 'Ticari Eşya Taşımacılığı':
+                        document.getElementById('ticari-form').classList.remove('d-none');
+                        break;
+                    case 'Yeni Mobilya Taşımacılığı':
+                        document.getElementById('mobilya-form').classList.remove('d-none');
+                        break;
+                    case 'Uluslararası Evden Eve Taşımacılık':
+                        document.getElementById('evden-eve-form').classList.remove('d-none');
+                        break;
+                    case 'Araç ve Motosiklet Taşımacılığı':
+                        document.getElementById('arac-form').classList.remove('d-none');
+                        break;
+                    case 'Konteyner Taşımacılığı':
+                        document.getElementById('konteyner-form').classList.remove('d-none');
+                        break;
+                }
+            }
+
+            // Update summary
+            function updateSummary() {
+                document.getElementById('summary-gonderi-text').textContent = selectedGonderiType;
+                let summaryHTML = '<strong>Detaylar:</strong><br>';
+
+                switch (selectedGonderiType) {
+                    case 'Kargo ve Paket Taşımacılığı':
+                        summaryHTML += `
                 <small>
                     <strong>Gönderici:</strong> ${document.getElementById('kargo-sender-name').value || 'Belirtilmedi'}<br>
                     <strong>Alıcı:</strong> ${document.getElementById('kargo-receiver-name').value || 'Belirtilmedi'}<br>
@@ -1103,119 +1413,139 @@ document.addEventListener('DOMContentLoaded', function() {
                     <strong>İçerik:</strong> ${document.getElementById('kargo-content').value || 'Belirtilmedi'}<br>
                     <strong>Sigorta:</strong> ${document.getElementById('kargo-insurance').value || 'Belirtilmedi'}
                 </small>`;
-                break;
-            case 'Ticari Eşya Taşımacılığı':
-                summaryHTML += `
+                        break;
+
+                    case 'Komple Tır':
+                        summaryHTML += `
+                <small>
+                    <strong>Gönderici:</strong> ${document.getElementById('kargo-sender-name').value || 'Belirtilmedi'}<br>
+                    <strong>Alıcı:</strong> ${document.getElementById('kargo-receiver-name').value || 'Belirtilmedi'}<br>
+                    <strong>Güzergah:</strong> ${document.getElementById('kargo-from').value || '?'} → ${document.getElementById('kargo-to').value || '?'}<br>
+                    <strong>Ağırlık:</strong> ${document.getElementById('kargo-weight').value || '0'} kg<br>
+                    <strong>Boyutlar:</strong> ${document.getElementById('kargo-width').value || '0'}x${document.getElementById('kargo-length').value || '0'}x${document.getElementById('kargo-height').value || '0'} cm<br>
+                    <strong>İçerik:</strong> ${document.getElementById('kargo-content').value || 'Belirtilmedi'}<br>
+                    <strong>Sigorta:</strong> ${document.getElementById('kargo-insurance').value || 'Belirtilmedi'}
+                </small>`;
+                        break;
+
+
+
+                    case 'Ticari Eşya Taşımacılığı':
+                        summaryHTML += `
                 <small>
                     <strong>Gönderici Firma:</strong> ${document.getElementById('ticari-sender-company').value || 'Belirtilmedi'}<br>
                     <strong>Alıcı Firma:</strong> ${document.getElementById('ticari-receiver-company').value || 'Belirtilmedi'}<br>
                     <strong>Güzergah:</strong> ${document.getElementById('ticari-from').value || '?'} → ${document.getElementById('ticari-to').value || '?'}<br>
+                    <strong>Gümrük:</strong> ${document.getElementById('gumruk-from').value || '?'} → ${document.getElementById('gumruk-to').value || '?'}<br>
+
                     <strong>Eşya Türü:</strong> ${document.getElementById('ticari-goods-type').value || 'Belirtilmedi'}<br>
                     <strong>Toplam Ağırlık:</strong> ${document.getElementById('ticari-total-weight').value || '0'} kg<br>
                     <strong>Palet Sayısı:</strong> ${document.getElementById('ticari-pallets').value || '0'}<br>
                     <strong>Koli Sayısı:</strong> ${document.getElementById('ticari-boxes').value || '0'}<br>
                     <strong>Nakliye Türü:</strong> ${document.getElementById('ticari-transport-type').value || 'Belirtilmedi'}
                 </small>`;
-                break;
-            // Diğer case'ler sizin kodunuzdaki gibi kalabilir...
-            // ... (Kısalık olması adına diğer case'ler eklenmemiştir, orijinal kodunuzdaki gibidir)
-        }
-        document.getElementById('summary-details').innerHTML = summaryHTML;
-    }
+                        break;
+                        // Diğer case'ler sizin kodunuzdaki gibi kalabilir...
+                        // ... (Kısalık olması adına diğer case'ler eklenmemiştir, orijinal kodunuzdaki gibidir)
+                }
+                document.getElementById('summary-details').innerHTML = summaryHTML;
+            }
 
-     function submitForm() {
-        // Butonu devre dışı bırak ve bir "loading" göstergesi ekle
-        const submitButton = document.getElementById('submit-form');
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Gönderiliyor...';
+            function submitForm() {
+                // Butonu devre dışı bırak ve bir "loading" göstergesi ekle
+                const submitButton = document.getElementById('submit-form');
+                submitButton.disabled = true;
+                submitButton.innerHTML =
+                    '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Gönderiliyor...';
 
 
-        // Form verilerini backend'in beklediği formatta topla
-        const postData = {
-            offer_type: selectedGonderiType,
-            details: {}
-        };
-        
-        // Sadece aktif olan form bölümündeki input, select ve textarea'ları seç
-        const activeForm = document.querySelector('.form-section:not(.d-none)');
-        if (activeForm) {
-            const formInputs = activeForm.querySelectorAll('input, select, textarea');
-            formInputs.forEach(input => {
-                // Etiketi (label) almak için daha sağlam bir yöntem
-                let label = input.previousElementSibling ? input.previousElementSibling.innerText : input.id;
-                postData.details[label] = input.value;
-            });
-        }
+                // Form verilerini backend'in beklediği formatta topla
+                const postData = {
+                    offer_type: selectedGonderiType,
+                    details: {}
+                };
 
-        // CSRF token'ını formdan al
-        const csrfToken = document.querySelector('input[name="_token"]').value;
+                // Sadece aktif olan form bölümündeki input, select ve textarea'ları seç
+                const activeForm = document.querySelector('.form-section:not(.d-none)');
+                if (activeForm) {
+                    const formInputs = activeForm.querySelectorAll('input, select, textarea');
+                    formInputs.forEach(input => {
+                        // Etiketi (label) almak için daha sağlam bir yöntem
+                        let label = input.previousElementSibling ? input.previousElementSibling.innerText :
+                            input.id;
+                        postData.details[label] = input.value;
+                    });
+                }
 
-        // Fetch API ile verileri sunucuya gönder
-        fetch("{{ route('price.offer.store') }}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': csrfToken,
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(postData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                Swal.fire({
-                    title: 'Harika!',
-                    text: data.message,
-                    icon: 'success',
-                    confirmButtonText: 'Tamam'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        location.reload(); // Sayfayı yenile
+                // CSRF token'ını formdan al
+                const csrfToken = document.querySelector('input[name="_token"]').value;
+
+                // Fetch API ile verileri sunucuya gönder
+                fetch("{{ route('price.offer.store') }}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken,
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(postData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire({
+                                title: 'Harika!',
+                                text: data.message,
+                                icon: 'success',
+                                confirmButtonText: 'Tamam'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(); // Sayfayı yenile
+                                }
+                            });
+                        } else {
+                            // Sunucudan gelen validasyon veya diğer hataları göster
+                            const errorMessages = data.errors ? Object.values(data.errors).join('\n') : data
+                                .message;
+                            Swal.fire({
+                                title: 'Hata!',
+                                text: errorMessages ||
+                                    'Bir sorun oluştu. Lütfen bilgilerinizi kontrol edin.',
+                                icon: 'error',
+                                confirmButtonText: 'Tekrar Dene'
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Fetch Error:', error);
+                        Swal.fire({
+                            title: 'Ağ Hatası!',
+                            text: 'Sunucuya bağlanırken bir sorun oluştu. Lütfen internet bağlantınızı kontrol edin.',
+                            icon: 'error',
+                            confirmButtonText: 'Tamam'
+                        });
+                    })
+                    .finally(() => {
+                        // Butonu tekrar aktif hale getir
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = 'Teklif Al';
+                    });
+            }
+
+            // Form alanları değiştiğinde özeti güncellemek için listener'ları ekleyen fonksiyon
+            function attachFormListeners() {
+                const allFields = document.querySelectorAll('#step-2-content input, #step-2-content select');
+                allFields.forEach(element => {
+                    if (element) {
+                        element.addEventListener('input', updateSummary);
+                        element.addEventListener('change', updateSummary);
                     }
                 });
-            } else {
-                // Sunucudan gelen validasyon veya diğer hataları göster
-                const errorMessages = data.errors ? Object.values(data.errors).join('\n') : data.message;
-                Swal.fire({
-                    title: 'Hata!',
-                    text: errorMessages || 'Bir sorun oluştu. Lütfen bilgilerinizi kontrol edin.',
-                    icon: 'error',
-                    confirmButtonText: 'Tekrar Dene'
-                });
             }
-        })
-        .catch(error => {
-            console.error('Fetch Error:', error);
-            Swal.fire({
-                title: 'Ağ Hatası!',
-                text: 'Sunucuya bağlanırken bir sorun oluştu. Lütfen internet bağlantınızı kontrol edin.',
-                icon: 'error',
-                confirmButtonText: 'Tamam'
-            });
-        })
-        .finally(() => {
-            // Butonu tekrar aktif hale getir
-            submitButton.disabled = false;
-            submitButton.innerHTML = 'Teklif Al';
+
+            // EKLENDİ: Sayfa yüklendiğinde form dinleyicilerini aktif et
+            attachFormListeners();
         });
-    }
-
-    // Form alanları değiştiğinde özeti güncellemek için listener'ları ekleyen fonksiyon
-    function attachFormListeners() {
-        const allFields = document.querySelectorAll('#step-2-content input, #step-2-content select');
-        allFields.forEach(element => {
-            if (element) {
-                element.addEventListener('input', updateSummary);
-                element.addEventListener('change', updateSummary);
-            }
-        });
-    }
-
-    // EKLENDİ: Sayfa yüklendiğinde form dinleyicilerini aktif et
-    attachFormListeners();
-});
-
-
     </script>
-    
-    @endsection
+
+@endsection

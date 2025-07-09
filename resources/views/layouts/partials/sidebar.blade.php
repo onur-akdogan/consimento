@@ -88,7 +88,7 @@
                     </a>
                 </li>
 
- 
+
                 <!-- Yeni Hizmetler Menüsü Burada Bitiyor -->
 
                 <!-- Yeni Hizmetler Menüsü Burada Başlıyor -->
@@ -101,8 +101,9 @@
                         </a>
                         <div class="collapse" id="sidebarAdmin">
                             <ul class="nav-second-level">
-                                        <li>
-                                    <a href="{{ route('price.offers.indexadmin') }}" class="tp-link">Fiyat Teklifi İstekleri</a>
+                                <li>
+                                    <a href="{{ route('price.offers.indexadmin') }}" class="tp-link">Fiyat Teklifi
+                                        İstekleri</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('admin.teklif.liste') }}" class="tp-link">Teklif Firmaları</a>
@@ -114,10 +115,10 @@
                             </ul>
                         </div>
 
-                      
 
 
-                        
+
+
 
                     </li>
                 @endif

@@ -64,6 +64,8 @@ Route::post('/admin/teklif-sil/{id}', [AdminController::class, 'teklifSil'])->na
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies.index');
 Route::get('/companies/create', [CompanyController::class, 'create'])->name('companies.create');
 Route::post('/companies', [CompanyController::class, 'store'])->name('companies.store');
+Route::DELETE('/companies/destroy/{id}', [CompanyController::class, 'destroy'])->name('companies.destroy');
+Route::get('/companies/create', [CompanyController::class, 'create'])->name('companies.create');
 
 
 Route::get('/addresses/{type?}', [AddressController::class, 'index'])

@@ -26,8 +26,7 @@ class PriceOfferController extends Controller
             // Normal kullanıcı ise: Sadece kendi tekliflerini al.
             $offers = PriceOffer::where('user_id', Auth::id())->latest()->paginate(15);
         }
-
-        // Verileri 'price_offers.index' view'ine gönder
+         // Verileri 'price_offers.index' view'ine gönder
         return view('pages.price_offers', compact('offers'));
     }
 

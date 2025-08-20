@@ -1,38 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8" />
-    <title>@yield('title') | Your App Name</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Your App Description" name="description" />
-    <meta content="Your Name" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="follow, index" />
+    <meta name="description" content="" />
+    <meta name="twitter:site" content="@keenthemes" />
+    <meta name="twitter:creator" content="@keenthemes" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="{{ asset('assets/media/app/og-image.png') }}" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Moblogi" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="{{ asset('assets/media/app/og-image.png') }}" />
 
-    <!-- Bootstrap css -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- App css -->
-    <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- Icons css -->
-    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-    
+    <title>Moblogi - @yield('title')</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/app/apple-touch-icon.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/media/app/favicon-32x32.png') }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/media/app/favicon-16x16.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/media/app/favicon.ico') }}" />
+
+    <!-- Tailwind CSS CDN (veya local olarak kendi Tailwind derlemeni kullanabilirsin) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Eğer ek stil dosyaları varsa -->
     @stack('css')
 </head>
 
-<body class="authentication-bg">
-    <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
-        @yield('content')
-    </div>
+<body class="bg-gray-100 min-h-screen flex flex-col justify-between">
 
-    <footer class="footer footer-alt">
-        <script>document.write(new Date().getFullYear())</script> &copy; Your App Name
+    <!-- Content -->
+    <main class="flex-grow">
+        <div class="container mx-auto px-4 py-10">
+            @yield('content')
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-500 py-6">
+        <script>document.write(new Date().getFullYear())</script> &copy; AlgiAi
     </footer>
 
-    <!-- Vendor js -->
-    <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
-    <!-- App js -->
-    <script src="{{ asset('assets/js/app.min.js') }}"></script>
-    
+    <!-- JavaScript (isteğe bağlı) -->
     @stack('scripts')
 </body>
 </html>

@@ -3,42 +3,60 @@
 @section('title', ucfirst($type) . ' Adresi Ekle')
 
 @section('content')
-<div class="container py-3">
-    <h4 class="mb-4">{{ $type === 'receiver' ? 'Alıcı' : 'Gönderici' }} Adresi Ekle</h4>
+<div class="grid gap-6 p-5">
 
-    @if(session('warning'))
-        <div class="alert alert-warning">{{ session('warning') }}</div>
+    {{-- Hata Mesajları --}}
+    @if ($errors->any())
+        <div class="bg-destructive/10 text-destructive p-4 rounded-lg">
+            <ul class="list-disc list-inside space-y-1">
+                @foreach ($errors->all() as $error)
+                    <li class="text-sm">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
     @endif
 
-    <form action="{{ route('addresses.store', ['type' => $type]) }}" method="POST">
+    <form action="{{ route('addresses.store', ['type' => $type]) }}" method="POST" class="space-y-6">
         @csrf
 
-        <div class="mb-3">
-            <label class="form-label">Ad Soyad / Firma</label>
-            <input type="text" class="form-control" name="name" required>
+        {{-- Adres Bilgileri --}}
+        <div class="kt-card mb-5">
+            <div class="kt-card-header">
+                <h3 class="kt-card-title">
+                    {{ $type === 'receiver' ? '📦 Alıcı' : '🚚 Gönderici' }} Adresi
+                </h3>
+            </div>
+            <div class="kt-card-content grid gap-4 p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="form-label">Ad Soyad / Firma <span class="text-destructive">*</span></label>
+                        <input type="text" name="name" value="{{ old('name') }}" required class="kt-input">
+                    </div>
+                    <div>
+                        <label class="form-label">Telefon <span class="text-destructive">*</span></label>
+                        <input type="text" name="phone" value="{{ old('phone') }}" required class="kt-input">
+                    </div>
+                    <div>
+                        <label class="form-label">Şehir <span class="text-destructive">*</span></label>
+                        <input type="text" name="city" value="{{ old('city') }}" required class="kt-input">
+                    </div>
+                    <div>
+                        <label class="form-label">İlçe <span class="text-destructive">*</span></label>
+                        <input type="text" name="district" value="{{ old('district') }}" required class="kt-input">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="form-label">Adres <span class="text-destructive">*</span></label>
+                        <textarea name="address" rows="3" required class="kt-input">{{ old('address') }}</textarea>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Telefon</label>
-            <input type="text" class="form-control" name="phone" required>
+        {{-- Form Butonları --}}
+        <div class="flex justify-end gap-4">
+            <a href="{{ route('addresses.index', ['type' => $type]) }}" class="kt-btn kt-btn-ghost">İptal</a>
+            <button type="submit" class="kt-btn kt-btn-primary">Kaydet</button>
         </div>
-
-        <div class="mb-3">
-            <label class="form-label">Şehir</label>
-            <input type="text" class="form-control" name="city" required>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">İlçe</label>
-            <input type="text" class="form-control" name="district" required>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Adres</label>
-            <textarea class="form-control" name="address" rows="3" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-success">Kaydet</button>
     </form>
 </div>
 @endsection

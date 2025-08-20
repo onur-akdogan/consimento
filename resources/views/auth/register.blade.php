@@ -3,170 +3,157 @@
 @section('title', 'Kayıt Ol')
 
 @section('content')
-<div class="account-pages my-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-6 col-lg-6 col-md-8">
-                <div class="card">
-                    <div class="card-body p-4">
-                        <div class="text-center mb-4">
-                            <h4 class="text-uppercase mt-0">Kayıt Ol</h4>
-                        </div>
+<div class="flex items-center justify-center min-h-screen bg-gray-100 py-10">
+    <div class="w-full max-w-2xl bg-white shadow-lg rounded-lg p-8">
+        <div class="mb-6 text-center">
+            <h2 class="text-2xl font-semibold text-gray-800 uppercase">Kayıt Ol</h2>
+        </div>
 
-                        <div class="mb-3 text-start">
-                            <a href="{{ route('login') }}" class="text-muted">
-                                <i class="fas fa-arrow-left me-1"></i> Geri
-                            </a>
-                        </div>
+        <div class="mb-4">
+            <a href="{{ route('login') }}" class="text-sm text-blue-600 hover:underline">
+                <i class="fas fa-arrow-left mr-1"></i> Geri
+            </a>
+        </div>
 
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul class="mb-0">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-sm">
+                <ul class="list-disc list-inside">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-                        <form action="{{ route('register.post') }}" method="post">
-                            @csrf
+        <form action="{{ route('register.post') }}" method="POST" class="space-y-5">
+            @csrf
 
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Ad Soyad</label>
-                                <div class="input-group">
-                                    <input class="form-control" type="text" id="name" name="name" value="{{ old('name') }}" required>
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="company_name" class="form-label">Şirket Adı (Opsiyonel)</label>
-                                <div class="input-group">
-                                    <input class="form-control" type="text" id="company_name" name="company_name" value="{{ old('company_name') }}">
-                                    <span class="input-group-text"><i class="fas fa-building"></i></span>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="email" class="form-label">E-Posta</label>
-                                <div class="input-group">
-                                    <input class="form-control" type="email" id="email" name="email" value="{{ old('email') }}" required>
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="phone" class="form-label">Telefon</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <img src="{{ asset('assets/images/flags/tr.png') }}" width="16" height="11" alt="TR">
-                                        +90
-                                    </span>
-                                    <input class="form-control" type="text" id="phone" name="phone" value="{{ old('phone') }}" required>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Şifre</label>
-                                <div class="input-group">
-                                    <input type="password" id="password" name="password" class="form-control" required>
-                                    <span class="input-group-text password-toggle" onclick="togglePassword('password')">
-                                        <i class="fas fa-eye"></i>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <label class="form-label">Şifrenizin en az:</label>
-                                <div class="password-requirements ms-3">
-                                    <div class="requirement {{ session('validation.password_requirements.uppercase') ? 'text-success' : 'text-danger' }}">
-                                        <i class="fas fa-circle me-1 small"></i> 1 büyük harf
-                                    </div>
-                                    <div class="requirement {{ session('validation.password_requirements.number') ? 'text-success' : 'text-danger' }}">
-                                        <i class="fas fa-circle me-1 small"></i> 1 rakam
-                                    </div>
-                                    <div class="requirement {{ session('validation.password_requirements.special') ? 'text-success' : 'text-danger' }}">
-                                        <i class="fas fa-circle me-1 small"></i> 1 özel karakter (!@#$%^&*)
-                                    </div>
-                                    <div class="requirement {{ session('validation.password_requirements.length') ? 'text-success' : 'text-danger' }}">
-                                        <i class="fas fa-circle me-1 small"></i> 12 karakter
-                                    </div>
-                                    <div class="mt-1">içermesi gerekiyor.</div>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="marketing_emails" name="marketing_emails" {{ old('marketing_emails') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="marketing_emails">
-                                        Önemli kampanyalardan haberdar olmak için anlık/kısa mesaj, e-posta ve telefon aracılığıyla <a href="#" class="text-primary">elektronik ileti</a> almak istiyorum.
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="terms_conditions" name="terms_conditions" required {{ old('terms_conditions') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="terms_conditions">
-                                        <a href="#" class="text-primary">Kullanıcı Sözleşmesi'ni</a>, <a href="#" class="text-primary">Aydınlatma Metni'ni</a>, okudum ve kabul ediyorum.
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="privacy_policy" name="privacy_policy" required {{ old('privacy_policy') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="privacy_policy">
-                                        <a href="#" class="text-primary">Açık Rıza Metni'ni</a> okudum ve kabul ediyorum.
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="d-grid text-center">
-                                <div class="mb-3">
-                                    <img src="{{ asset('assets/images/captcha.png') }}" alt="Captcha" class="img-fluid">
-                                </div>
-                                <button class="btn btn-primary" type="submit">Üyelik Oluştur</button>
-                            </div>
-                        </form>
-                    </div>
+            <!-- Ad Soyad -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Ad Soyad</label>
+                <div class="relative">
+                    <input type="text" name="name" id="name" required value="{{ old('name') }}"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="absolute right-3 top-2.5 text-gray-400"><i class="fas fa-user"></i></span>
                 </div>
             </div>
-        </div>
+
+            <!-- Şirket Adı -->
+            <div>
+                <label for="company_name" class="block text-sm font-medium text-gray-700 mb-1">Şirket Adı (Opsiyonel)</label>
+                <div class="relative">
+                    <input type="text" name="company_name" id="company_name" value="{{ old('company_name') }}"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="absolute right-3 top-2.5 text-gray-400"><i class="fas fa-building"></i></span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-Posta</label>
+                <div class="relative">
+                    <input type="email" name="email" id="email" required value="{{ old('email') }}"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="absolute right-3 top-2.5 text-gray-400"><i class="fas fa-envelope"></i></span>
+                </div>
+            </div>
+
+            <!-- Telefon -->
+            <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefon</label>
+                <div class="flex items-center border rounded-lg overflow-hidden">
+                    <span class="flex items-center gap-2 px-3 bg-gray-100 text-sm text-gray-600">
+                        <img src="{{ asset('assets/images/flags/tr.png') }}" alt="TR" class="w-5 h-auto"> +90
+                    </span>
+                    <input type="text" name="phone" id="phone" required value="{{ old('phone') }}"
+                        class="w-full px-4 py-2 focus:outline-none">
+                </div>
+            </div>
+
+            <!-- Şifre -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Şifre</label>
+                <div class="relative">
+                    <input type="password" name="password" id="password" required
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="absolute right-3 top-2.5 text-gray-400 cursor-pointer" onclick="togglePassword('password')">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Şifre Kuralları -->
+            <div class="text-sm text-gray-700">
+                <p class="mb-1">Şifrenizin en az:</p>
+                <ul class="ml-4 space-y-1" id="password-requirements">
+                    <li class="requirement text-red-500"><i class="fas fa-circle text-xs mr-2"></i> 1 büyük harf</li>
+                    <li class="requirement text-red-500"><i class="fas fa-circle text-xs mr-2"></i> 1 rakam</li>
+                    <li class="requirement text-red-500"><i class="fas fa-circle text-xs mr-2"></i> 1 özel karakter (!@#$%^&*)</li>
+                    <li class="requirement text-red-500"><i class="fas fa-circle text-xs mr-2"></i> 12 karakter</li>
+                </ul>
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="space-y-3 text-sm text-gray-700">
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" name="marketing_emails" id="marketing_emails" {{ old('marketing_emails') ? 'checked' : '' }}
+                        class="mt-1">
+                    <label for="marketing_emails">
+                        Önemli kampanyalardan haberdar olmak için <a href="#" class="text-blue-500 underline">elektronik ileti</a> almak istiyorum.
+                    </label>
+                </div>
+
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" name="terms_conditions" id="terms_conditions" required {{ old('terms_conditions') ? 'checked' : '' }}
+                        class="mt-1">
+                    <label for="terms_conditions">
+                        <a href="#" class="text-blue-500 underline">Kullanıcı Sözleşmesi'ni</a> ve
+                        <a href="#" class="text-blue-500 underline">Aydınlatma Metni'ni</a> okudum ve kabul ediyorum.
+                    </label>
+                </div>
+
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" name="privacy_policy" id="privacy_policy" required {{ old('privacy_policy') ? 'checked' : '' }}
+                        class="mt-1">
+                    <label for="privacy_policy">
+                        <a href="#" class="text-blue-500 underline">Açık Rıza Metni'ni</a> okudum ve kabul ediyorum.
+                    </label>
+                </div>
+            </div>
+
+            <!-- Captcha ve Submit -->
+            <div class="text-center space-y-4 pt-2">
+                <div>
+                    <img src="{{ asset('assets/images/captcha.png') }}" alt="Captcha" class="mx-auto w-40 h-auto">
+                </div>
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+                    Üyelik Oluştur
+                </button>
+            </div>
+        </form>
     </div>
 </div>
 
 @push('scripts')
 <script>
     function togglePassword(fieldId) {
-        var field = document.getElementById(fieldId);
-        if (field.type === "password") {
-            field.type = "text";
-        } else {
-            field.type = "password";
-        }
+        const field = document.getElementById(fieldId);
+        field.type = field.type === "password" ? "text" : "password";
     }
 
-    // Password validation in real-time
-    document.getElementById('password').addEventListener('input', function() {
-        var password = this.value;
-        var hasUpperCase = /[A-Z]/.test(password);
-        var hasNumber = /[0-9]/.test(password);
-        var hasSpecial = /[!@#$%^&*]/.test(password);
-        var hasLength = password.length >= 12;
-        
-        document.querySelectorAll('.requirement')[0].classList.toggle('text-success', hasUpperCase);
-        document.querySelectorAll('.requirement')[0].classList.toggle('text-danger', !hasUpperCase);
-        
-        document.querySelectorAll('.requirement')[1].classList.toggle('text-success', hasNumber);
-        document.querySelectorAll('.requirement')[1].classList.toggle('text-danger', !hasNumber);
-        
-        document.querySelectorAll('.requirement')[2].classList.toggle('text-success', hasSpecial);
-        document.querySelectorAll('.requirement')[2].classList.toggle('text-danger', !hasSpecial);
-        
-        document.querySelectorAll('.requirement')[3].classList.toggle('text-success', hasLength);
-        document.querySelectorAll('.requirement')[3].classList.toggle('text-danger', !hasLength);
+    document.getElementById('password').addEventListener('input', function () {
+        const password = this.value;
+        const requirements = [
+            /[A-Z]/.test(password),
+            /[0-9]/.test(password),
+            /[!@#$%^&*]/.test(password),
+            password.length >= 12
+        ];
+        document.querySelectorAll('#password-requirements .requirement').forEach((el, i) => {
+            el.classList.toggle('text-green-600', requirements[i]);
+            el.classList.toggle('text-red-500', !requirements[i]);
+        });
     });
 </script>
 @endpush

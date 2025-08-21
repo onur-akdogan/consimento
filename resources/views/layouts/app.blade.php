@@ -15,20 +15,20 @@
     <meta content="@keenthemes" name="twitter:creator" />
     <meta content="summary_large_image" name="twitter:card" />
      <meta content="" name="twitter:description" />
-    <meta content="assets/media/app/og-image.png" name="twitter:image" />
+    <meta content="public/assets/media/app/og-image.png" name="twitter:image" />
      <meta content="en_US" property="og:locale" />
     <meta content="website" property="og:type" />
     <meta content="@keenthemes" property="og:site_name" />
      <meta content="" property="og:description" />
-    <meta content="assets/media/app/og-image.png" property="og:image" />
-    <link href="assets/media/app/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
-    <link href="assets/media/app/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
-    <link href="assets/media/app/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
-    <link href="assets/media/app/favicon.ico" rel="shortcut icon" />
+    <meta content="public/assets/media/app/og-image.png" property="og:image" />
+    <link href="public/assets/media/app/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="public/assets/media/app/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="public/assets/media/app/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="public/assets/media/app/favicon.ico" rel="shortcut icon" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="assets/vendors/apexcharts/apexcharts.css" rel="stylesheet" />
-    <link href="assets/vendors/keenicons/styles.bundle.css" rel="stylesheet" />
-    <link href="assets/css/styles.css" rel="stylesheet" />
+    <link href="public/assets/vendors/apexcharts/apexcharts.css" rel="stylesheet" />
+    <link href="public/assets/vendors/keenicons/styles.bundle.css" rel="stylesheet" />
+    <link href="public/assets/css/styles.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -71,8 +71,8 @@
             <!-- Container -->
             <div class="kt-container-fixed flex items-center justify-between flex-wrap gap-3">
                 <a href="html/demo8.html">
-                    <img class="dark:hidden min-h-[30px]" src="assets/media/app/mini-logo-gray.svg" />
-                    <img class="hidden dark:block min-h-[30px]" src="assets/media/app/mini-logo-gray-dark.svg" />
+                    <img class="dark:hidden min-h-[30px]" src="public/assets/media/app/mini-logo-gray.svg" />
+                    <img class="hidden dark:block min-h-[30px]" src="public/assets/media/app/mini-logo-gray-dark.svg" />
                 </a>
                 <button class="kt-btn kt-btn-icon kt-btn-ghost -me-1" data-kt-drawer-toggle="#sidebar">
                     <i class="ki-filled ki-menu">
@@ -135,10 +135,10 @@
 
     <!-- End of Page -->
     <!-- Scripts -->
-    <script src="assets/js/core.bundle.js"></script>
-    <script src="assets/vendors/ktui/ktui.min.js"></script>
-    <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/js/widgets/general.js"></script>
+    <script src="public/assets/js/core.bundle.js"></script>
+    <script src="public/assets/vendors/ktui/ktui.min.js"></script>
+    <script src="public/assets/vendors/apexcharts/apexcharts.min.js"></script>
+    <script src="public/assets/js/widgets/general.js"></script>
     <!-- End of Scripts -->
 </body>
 

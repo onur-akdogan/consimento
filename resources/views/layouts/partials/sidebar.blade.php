@@ -2,8 +2,8 @@
        data-kt-drawer="true" data-kt-drawer-class="kt-drawer kt-drawer-start flex" id="sidebar">
        <div class="hidden lg:flex items-center justify-center shrink-0 pt-8 pb-3.5" id="sidebar_header">
            <a href="{{ route('dashboard') }}">
-               <img class="dark:hidden min-h-[42px]" src="assets/media/app/mini-logo-square-gray.svg" />
-               <img class="hidden dark:block min-h-[42px]" src="assets/media/app/mini-logo-square-gray-dark.svg" />
+               <img class="dark:hidden min-h-[42px]" src="public/assets/media/app/mini-logo-square-gray.svg" />
+               <img class="hidden dark:block min-h-[42px]" src="public/assets/media/app/mini-logo-square-gray-dark.svg" />
            </a>
        </div>
        <div class="kt-scrollable-y-hover grow gap-2.5 shrink-0 flex items-center pt-5 lg:pt-0 ps-3 pe-3 lg:pe-0 flex-col"

@@ -687,242 +687,243 @@
     <!-- Delete Confirmation Modal -->
 
     <script>
-        // Modal functions
-        function openDetailModalFromButton(button) {
-            const companyData = button.getAttribute('data-company');
-            const company = JSON.parse(atob(companyData));
-            openDetailModal(company);
+       function openDetailModalFromButton(button) {
+    const companyData = button.getAttribute('data-company');
+    const company = JSON.parse(atob(companyData));
+    showCompanyDetail(company);
+}
+
+function showCompanyDetail(company) {
+    // Firma detaylarını organize et
+    const companyDetails = {};
+    
+    // Temel Bilgiler
+    if (company.name) companyDetails['Firma Adı'] = company.name;
+    if (company.brand_name) companyDetails['Marka Adı'] = company.brand_name;
+    if (company.tax_number) companyDetails['Vergi No'] = company.tax_number;
+    if (company.establishment_year) {
+        const age = new Date().getFullYear() - company.establishment_year;
+        companyDetails['Kuruluş Yılı'] = `${company.establishment_year} (${age} yıllık)`;
+    }
+    if (company.website) {
+        const formattedWebsite = company.website.startsWith('http') ? company.website : `http://${company.website}`;
+        companyDetails['Web Sitesi'] = `<a href="${formattedWebsite}" target="_blank" style="color: #2563eb; text-decoration: underline;">${company.website}</a>`;
+    }
+    
+    // İletişim Bilgileri
+    if (company.contact_person) companyDetails['Yetkili Kişi'] = company.contact_person;
+    if (company.email) {
+        companyDetails['E-posta'] = `<a href="mailto:${company.email}" style="color: #2563eb; text-decoration: underline;">${company.email}</a>`;
+    }
+    if (company.phone) {
+        companyDetails['Telefon'] = `<a href="tel:${company.phone}" style="color: #2563eb; text-decoration: underline;">${company.phone}</a>`;
+    }
+    if (company.address) companyDetails['Adres'] = company.address;
+    
+    // Hizmet Bilgileri
+    if (company.service_types && company.service_types.length > 0) {
+        const serviceBadges = company.service_types.map(type => 
+            `<span style="display: inline-block; background: #e5e7eb; color: #374151; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 4px;">${type.charAt(0).toUpperCase() + type.slice(1)}</span>`
+        ).join('');
+        companyDetails['Hizmet Tipleri'] = serviceBadges;
+    }
+    if (company.shipping_capacity) companyDetails['Gönderi Kapasitesi'] = company.shipping_capacity;
+    if (company.accepted_product_types) companyDetails['Kabul Edilen Ürünler'] = company.accepted_product_types;
+    if (company.uk_regions) companyDetails['İngiltere Bölgeleri'] = company.uk_regions;
+    
+    // Partner Bilgileri
+    if (typeof company.has_uk_partner !== 'undefined') {
+        const statusText = company.has_uk_partner ? 'Evet' : 'Hayır';
+        const statusColor = company.has_uk_partner ? '#10b981' : '#6b7280';
+        companyDetails['İngiltere Partneri'] = `<span style="color: ${statusColor}; font-weight: 500;">${statusText}</span>`;
+    }
+    if (company.partner_company_name) companyDetails['Partner Firma'] = company.partner_company_name;
+    if (typeof company.provides_customs_service !== 'undefined') {
+        const statusText = company.provides_customs_service ? 'Evet' : 'Hayır';
+        const statusColor = company.provides_customs_service ? '#10b981' : '#6b7280';
+        companyDetails['Gümrük Hizmeti'] = `<span style="color: ${statusColor}; font-weight: 500;">${statusText}</span>`;
+    }
+    
+    // Sertifikalar
+    if (company.certificates) companyDetails['Sertifika Açıklaması'] = company.certificates;
+    if (company.certificate_files && company.certificate_files.length > 0) {
+        const fileLinks = company.certificate_files.map(fileName => 
+            `<a href="#" style="display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 4px 8px; border-radius: 6px; text-decoration: none; font-size: 12px; margin-right: 4px; margin-bottom: 4px;">📄 ${fileName}</a>`
+        ).join('');
+        companyDetails['Sertifika Dosyaları'] = fileLinks;
+    }
+    
+    // Ek Bilgiler
+    if (company.additional_info) companyDetails['Ek Bilgiler'] = company.additional_info;
+    
+    // HTML oluştur
+    let html = `
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: left; max-height: 400px; overflow-y: auto;">
+    `;
+
+    for (const [key, value] of Object.entries(companyDetails)) {
+        html += `
+            <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;">
+                <p style="margin: 0; font-size: 13px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">${key}</p>
+                <div style="margin: 6px 0 0; font-size: 14px; color: #111827; line-height: 1.4;">${value ?? '-'}</div>
+            </div>
+        `;
+    }
+
+    html += `</div>`;
+
+    // SweetAlert2 ile göster
+    Swal.fire({
+        title: `🏢 ${company.name} ${company.brand_name ? `(${company.brand_name})` : ''}`,
+        html: html,
+        icon: 'info',
+        confirmButtonText: 'Kapat',
+        confirmButtonColor: '#2563eb',
+        width: '800px',
+        customClass: {
+            popup: 'company-detail-popup',
+            title: 'company-detail-title',
+            htmlContainer: 'company-detail-content'
+        },
+        showCloseButton: true,
+        focusConfirm: false,
+        allowOutsideClick: true,
+        allowEscapeKey: true
+    });
+}
+
+function openDeleteModal(companyId, companyName) {
+    Swal.fire({
+        title: 'Firma Silme Onayı',
+        html: `
+            <div style="text-align: center; padding: 10px;">
+                <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+                        <div style="width: 48px; height: 48px; background: #fee2e2; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <svg style="width: 24px; height: 24px; color: #dc2626;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <p style="margin: 0; font-size: 16px; font-weight: 600; color: #991b1b; margin-bottom: 8px;">
+                        ${companyName}
+                    </p>
+                    <p style="margin: 0; font-size: 14px; color: #7f1d1d;">
+                        Bu firmayı silmek istediğinizden emin misiniz?<br>
+                        <strong>Bu işlem geri alınamaz.</strong>
+                    </p>
+                </div>
+                <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 12px;">
+                    <p style="margin: 0; font-size: 12px; color: #6b7280; text-align: left;">
+                        <strong>Silinecek Firma:</strong> ${companyName}
+                    </p>
+                </div>
+            </div>
+        `,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc2626',
+        cancelButtonColor: '#6b7280',
+        confirmButtonText: 'Evet, Sil',
+        cancelButtonText: 'İptal',
+        reverseButtons: true,
+        focusCancel: true,
+        customClass: {
+            popup: 'delete-confirmation-popup',
+            confirmButton: 'delete-confirm-btn',
+            cancelButton: 'delete-cancel-btn'
+        },
+        allowOutsideClick: false,
+        allowEscapeKey: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Form oluştur ve gönder
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = `/companies/${companyId}`;
+            
+            // CSRF token ekle
+            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+            if (csrfToken) {
+                const csrfInput = document.createElement('input');
+                csrfInput.type = 'hidden';
+                csrfInput.name = '_token';
+                csrfInput.value = csrfToken;
+                form.appendChild(csrfInput);
+            }
+            
+            // DELETE method ekle
+            const methodInput = document.createElement('input');
+            methodInput.type = 'hidden';
+            methodInput.name = '_method';
+            methodInput.value = 'DELETE';
+            form.appendChild(methodInput);
+            
+            document.body.appendChild(form);
+            form.submit();
         }
+    });
+}
 
-        function openDetailModal(company) {
-            console.log('Opening modal for company:', company); // Debug log
+function closeDeleteModal() {
+    // SweetAlert2 kullanıldığı için bu fonksiyon artık gereksiz
+    // Ancak mevcut kod uyumluluğu için boş bırakılabilir
+}
 
-            const modal = document.getElementById('companyDetailModal');
-
-            if (!modal) {
-                console.error('Modal element not found!');
-                return;
-            }
-
-            // Helper functions
-            function setAndShowText(elementId, text) {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    element.textContent = text;
-                    const parentRow = element.closest('[id$="-row"], [id$="-p"]');
-                    if (parentRow) {
-                        parentRow.classList.remove('hidden');
-                    }
-                }
-            }
-
-            function setAndShowHtml(elementId, html) {
-                const element = document.getElementById(elementId);
-                if (element) {
-                    element.innerHTML = html;
-                    const parentRow = element.closest('[id$="-row"], [id$="-p"]');
-                    if (parentRow) {
-                        parentRow.classList.remove('hidden');
-                    }
-                }
-            }
-
-            function toggleSectionVisibility(sectionId, hasContent) {
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    section.classList.toggle('hidden', !hasContent);
-                }
-            }
-
-            // Reset modal - hide all rows
-            document.querySelectorAll('#companyDetailModal [id$="-row"], #companyDetailModal [id$="-p"]').forEach(el => {
-                el.classList.add('hidden');
-            });
-
-            // Clear content
-            document.querySelectorAll('#companyDetailModal [id^="detail-"]').forEach(el => {
-                if (el.tagName === 'DD' || el.tagName === 'SPAN') {
-                    el.textContent = '';
-                }
-            });
-
-            // Hide all sections
-            ['detail-service-info-section', 'detail-partner-service-section',
-                'detail-certificates-section', 'detail-additional-info-section'
-            ].forEach(id => {
-                toggleSectionVisibility(id, false);
-            });
-
-            // Update title
-            const modalTitle = document.getElementById('companyDetailModalLabel');
-            if (modalTitle) {
-                modalTitle.textContent =
-                    `${company.name} ${company.brand_name ? `(${company.brand_name})` : ''} - Detayları`;
-            }
-
-            // Basic Information
-            setAndShowText('detail-company-name', company.name || '');
-            if (company.brand_name) setAndShowText('detail-brand-name', company.brand_name);
-            if (company.tax_number) setAndShowText('detail-tax-number', company.tax_number);
-            if (company.establishment_year) {
-                const age = new Date().getFullYear() - company.establishment_year;
-                setAndShowText('detail-establishment-year', `${company.establishment_year} (${age} yıllık)`);
-            }
-            if (company.website) {
-                const formattedWebsite = company.website.startsWith('http') ? company.website : `http://${company.website}`;
-                setAndShowHtml('detail-website',
-                    `<a href="${formattedWebsite}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">${company.website}</a>`
-                );
-            }
-
-            // Contact Information
-            if (company.contact_person) setAndShowText('detail-contact-person', company.contact_person);
-            if (company.email) setAndShowHtml('detail-email',
-                `<a href="mailto:${company.email}" class="text-blue-600 hover:text-blue-800">${company.email}</a>`);
-            if (company.phone) setAndShowHtml('detail-phone',
-                `<a href="tel:${company.phone}" class="text-blue-600 hover:text-blue-800">${company.phone}</a>`);
-            if (company.address) setAndShowText('detail-address', company.address);
-
-            // Service Information
-            let hasServiceInfo = false;
-            if (company.service_types && company.service_types.length > 0) {
-                const serviceBadges = company.service_types.map(type =>
-                    `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mr-1">${type.charAt(0).toUpperCase() + type.slice(1)}</span>`
-                ).join('');
-                setAndShowHtml('detail-service-types', serviceBadges);
-                hasServiceInfo = true;
-            }
-            if (company.shipping_capacity) {
-                setAndShowText('detail-shipping-capacity', company.shipping_capacity);
-                hasServiceInfo = true;
-            }
-            if (company.accepted_product_types) {
-                setAndShowText('detail-accepted-product-types', company.accepted_product_types);
-                hasServiceInfo = true;
-            }
-            if (company.uk_regions) {
-                setAndShowText('detail-uk-regions', company.uk_regions);
-                hasServiceInfo = true;
-            }
-            toggleSectionVisibility('detail-service-info-section', hasServiceInfo);
-
-            // Partner and Service Status
-            let hasPartnerServiceInfo = false;
-            if (typeof company.has_uk_partner !== 'undefined') {
-                const statusText = company.has_uk_partner ? 'Evet' : 'Hayır';
-                const statusClass = company.has_uk_partner ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800';
-                setAndShowHtml('detail-uk-partner-status',
-                    `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusClass}">${statusText}</span>`
-                );
-                hasPartnerServiceInfo = true;
-            }
-            if (company.partner_company_name) {
-                setAndShowText('detail-partner-company-name', company.partner_company_name);
-                hasPartnerServiceInfo = true;
-            }
-            if (typeof company.provides_customs_service !== 'undefined') {
-                const statusText = company.provides_customs_service ? 'Evet' : 'Hayır';
-                const statusClass = company.provides_customs_service ? 'bg-green-100 text-green-800' :
-                    'bg-gray-100 text-gray-800';
-                setAndShowHtml('detail-customs-service-status',
-                    `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusClass}">${statusText}</span>`
-                );
-                hasPartnerServiceInfo = true;
-            }
-            toggleSectionVisibility('detail-partner-service-section', hasPartnerServiceInfo);
-
-            // Certificates
-            let hasCertificateInfo = false;
-            if (company.certificates) {
-                setAndShowText('detail-certificates', company.certificates);
-                hasCertificateInfo = true;
-            }
-            const certificateFilesContainer = document.getElementById('detail-certificate-files');
-            if (certificateFilesContainer) {
-                certificateFilesContainer.innerHTML = '';
-                if (company.certificate_files && company.certificate_files.length > 0) {
-                    company.certificate_files.forEach((fileName, index) => {
-                        const fileUrl = '#'; // Placeholder
-                        const link = document.createElement('a');
-                        link.href = fileUrl;
-                        link.target = '_blank';
-                        link.rel = 'noopener noreferrer';
-                        link.className =
-                            'inline-flex items-center px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-medium rounded-md border border-blue-200 transition-colors duration-200';
-                        link.innerHTML = `
-                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        ${fileName}
-                    `;
-                        certificateFilesContainer.appendChild(link);
-                    });
-                    document.getElementById('detail-certificate-files-p').classList.remove('hidden');
-                    hasCertificateInfo = true;
-                }
-            }
-            toggleSectionVisibility('detail-certificates-section', hasCertificateInfo);
-
-            // Additional Information
-            if (company.additional_info) {
-                setAndShowText('detail-additional-info', company.additional_info);
-                toggleSectionVisibility('detail-additional-info-section', true);
-            } else {
-                toggleSectionVisibility('detail-additional-info-section', false);
-            }
-
-            // Show modal
-            modal.classList.remove('hidden');
-
-            document.body.style.overflow = 'hidden';
+// CSS stillerini ekle (head'e eklenmesi önerilir)
+const style = document.createElement('style');
+style.textContent = `
+    .company-detail-popup {
+        border-radius: 12px !important;
+    }
+    
+    .company-detail-title {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: #1f2937 !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .company-detail-content {
+        padding: 0 !important;
+    }
+    
+    .company-detail-content a:hover {
+        opacity: 0.8;
+    }
+    
+    .delete-confirmation-popup {
+        border-radius: 12px !important;
+    }
+    
+    .delete-confirm-btn {
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+        padding: 10px 20px !important;
+    }
+    
+    .delete-cancel-btn {
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+        padding: 10px 20px !important;
+    }
+    
+    @media (max-width: 768px) {
+        .company-detail-popup {
+            width: 95% !important;
+            max-width: 95% !important;
         }
-
-        function closeDetailModal() {
-            const modal = document.getElementById('companyDetailModal');
-            if (modal) {
-                modal.classList.add('hidden');
-
-                document.body.style.overflow = 'auto';
-            }
+        
+        .company-detail-content > div {
+            grid-template-columns: 1fr !important;
         }
-
-        function openDeleteModal(companyId, companyName) {
-            const modal = document.getElementById('deleteConfirmationModal');
-            const deleteForm = document.getElementById('deleteCompanyForm');
-            const companyNameSpan = document.getElementById('companyNameToDelete');
-
-            if (deleteForm && companyNameSpan) {
-                deleteForm.action = `{{ url('companies') }}/${companyId}`;
-                companyNameSpan.textContent = companyName;
-
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
+        
+        .delete-confirmation-popup {
+            width: 95% !important;
+            max-width: 95% !important;
         }
-
-        function closeDeleteModal() {
-            const modal = document.getElementById('deleteConfirmationModal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Close modals when clicking outside or pressing Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeDetailModal();
-                closeDeleteModal();
-            }
-        });
-
-        // Close modal when clicking on backdrop
-        document.addEventListener('click', function(event) {
-            if (event.target.classList.contains('bg-opacity-75')) {
-                closeDetailModal();
-                closeDeleteModal();
-            }
-        });
-    </script>
-
+    }
+`;
+document.head.appendChild(style);
+ </script>
 @endsection

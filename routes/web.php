@@ -47,6 +47,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pricecalcute', [PricecalcuteController::class, 'index'])->name('pricecalcute');
     Route::post('/fiyat-hesapla', [PricecalcuteController::class, 'hesapla'])->name('fiyat.hesapla');
 
+
+
+Route::get('/priceofferindex', [PricecalcuteController::class, 'priceofferindex'])->name('priceoffer.index');
+
     // Fiyat hesaplama (kullanıcı)
  
 // Admin paneli

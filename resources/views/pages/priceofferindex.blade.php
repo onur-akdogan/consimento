@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Taşıma Teklifleri')
+@section('title', 'Taşıma Tekliflerim')
 
 @section('content')
     <!-- begin: grid -->
@@ -35,7 +35,7 @@
                 @if ($offers->count() > 0)
                     <div class="kt-card kt-card-grid min-w-full">
                         <div class="kt-card-header py-5 flex-wrap gap-2">
-                            <h3 class="kt-card-title">Tüm Taşıma Teklifleri</h3>
+                            <h3 class="kt-card-title">Tüm Taşıma Tekliflerim</h3>
                         </div>
                         <div class="kt-card-content">
                             <div class="kt-scrollable-x-auto">
@@ -79,7 +79,7 @@
                     <!-- Empty State -->
                     <div class="kt-card">
                         <div class="kt-card-content px-10 py-12 text-center">
-                            <h3 class="text-xl font-semibold text-gray-900">Henüz teklif kaydınız yok</h3>
+                            <h3 class="text-xl font-semibold text-gray-900">Henüz Eşleşen Teklif Yok</h3>
                         </div>
                     </div>
                 @endif

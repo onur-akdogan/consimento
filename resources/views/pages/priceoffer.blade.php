@@ -10,161 +10,206 @@
             @csrf
             <div
                 class=" w-full max-w-6xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
- 
+
                 <!-- Progress Bar -->
                 <div class="w-full bg-gray-200 rounded-full h-3 mb-8 dark:bg-gray-700">
                     <div id="progress-bar" class="bg-blue-600 h-3 rounded-full transition-all duration-300 ease-in-out"
                         style="width: 33.33%"></div>
                 </div>
 
-            
 
-                <!-- Kartlar Grid -->
-                <div class="step-content"  id="step-1-content">
-                        <!-- Başlık -->
-                <h2 class="mb-6 text-2xl font-bold text-gray-900 text-center dark:text-white shipping-type-optionstitle">
-                    Gönderi Türü Seçin
-                </h2>
-<div class=" grid grid-cols-3 md:grid-cols-3 gap-6 p-5 shipping-type-options">
-    
-                    <!-- Kargo -->
-                    <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-blue-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
-                        data-type="Kargo ve Paket Taşımacılığı">
-                        <div class="flex justify-center mb-3">
-                            <div class="p-3 bg-blue-100 text-blue-600 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                                    </path>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                            </div>
-                        </div>
-                        <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Kargo ve Paket
-                            Taşımacılığı</h5>
-                    </div>
+<!-- Kartlar Grid -->
+                <div class="step-content" id="step-1-content">
+                    <!-- Başlık -->
+                    <h2 class="mb-6 text-2xl font-bold text-gray-900 text-center dark:text-white shipping-type-optionstitle">
+                        Gönderi Türü Seçin
+                    </h2>
+                    <div class="grid grid-cols-3 md:grid-cols-3 gap-6 p-5 shipping-type-options">
 
-                    <!-- Komple Tır -->
-                    <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-green-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
-                        data-type="Komple Tır">
-                        <div class="flex justify-center mb-3">
-                            <div class="p-3 bg-green-100 text-green-600 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="6" width="6" height="8" rx="1"></rect>
-                                    <rect x="8" y="4" width="13" height="10" rx="1"></rect>
-                                    <circle cx="5" cy="16" r="2"></circle>
-                                    <circle cx="12" cy="16" r="2"></circle>
-                                    <circle cx="18" cy="16" r="2"></circle>
-                                </svg>
+                        <!-- Kargo -->
+                        <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-blue-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
+                            data-type="Kargo ve Paket Taşımacılığı">
+                            <div class="flex justify-center mb-3">
+                                <div class="p-3 bg-blue-100 text-blue-600 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                        </path>
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                    </svg>
+                                </div>
                             </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Kargo ve Paket
+                                Taşımacılığı</h5>
                         </div>
-                        <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Komple Tır</h5>
-                    </div>
 
-                    <!-- Ticari Eşya -->
-                    <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-purple-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
-                        data-type="Ticari Eşya Taşımacılığı">
-                        <div class="flex justify-center mb-3">
-                            <div class="p-3 bg-purple-100 text-purple-600 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="1" y="3" width="15" height="13"></rect>
-                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                                </svg>
+                        <!-- Komple Tır -->
+                        <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-green-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
+                            data-type="Komple Tır">
+                            <div class="flex justify-center mb-3">
+                                <div class="p-3 bg-green-100 text-green-600 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="2" y="6" width="6" height="8" rx="1"></rect>
+                                        <rect x="8" y="4" width="13" height="10" rx="1"></rect>
+                                        <circle cx="5" cy="16" r="2"></circle>
+                                        <circle cx="12" cy="16" r="2"></circle>
+                                        <circle cx="18" cy="16" r="2"></circle>
+                                    </svg>
+                                </div>
                             </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Komple Tır</h5>
                         </div>
-                        <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Ticari Eşya
-                            Taşımacılığı</h5>
-                    </div>
 
-                    <!-- Yeni Mobilya -->
-                    <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-pink-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
-                        data-type="Yeni Mobilya Taşımacılığı">
-                        <div class="flex justify-center mb-3">
-                            <div class="p-3 bg-pink-100 text-pink-600 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
+                        <!-- Ticari Eşya -->
+                        <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-purple-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
+                            data-type="Ticari Eşya Taşımacılığı">
+                            <div class="flex justify-center mb-3">
+                                <div class="p-3 bg-purple-100 text-purple-600 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="1" y="3" width="15" height="13"></rect>
+                                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                    </svg>
+                                </div>
                             </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Ticari Eşya
+                                Taşımacılığı</h5>
                         </div>
-                        <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Yeni Mobilya
-                            Taşımacılığı</h5>
-                    </div>
 
-                    <!-- Uluslararası Evden Eve -->
-                    <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-yellow-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
-                        data-type="Uluslararası Evden Eve Taşımacılık">
-                        <div class="flex justify-center mb-3">
-                            <div class="p-3 bg-yellow-100 text-yellow-600 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                    <polyline points="10 9 9 9 8 9"></polyline>
-                                </svg>
+                        <!-- Yeni Mobilya -->
+                        <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-pink-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
+                            data-type="Yeni Mobilya Taşımacılığı">
+                            <div class="flex justify-center mb-3">
+                                <div class="p-3 bg-pink-100 text-pink-600 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                    </svg>
+                                </div>
                             </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Yeni Mobilya
+                                Taşımacılığı</h5>
                         </div>
-                        <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Uluslararası Evden Eve
-                            Taşımacılık</h5>
-                    </div>
 
-                    <!-- Araç ve Motosiklet -->
-                    <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-red-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
-                        data-type="Araç ve Motosiklet Taşımacılığı">
-                        <div class="flex justify-center mb-3">
-                            <div class="p-3 bg-red-100 text-red-600 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <rect x="1" y="3" width="15" height="13"></rect>
-                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                                </svg>
+                        <!-- Uluslararası Evden Eve -->
+                        <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-yellow-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
+                            data-type="Uluslararası Evden Eve Taşımacılık">
+                            <div class="flex justify-center mb-3">
+                                <div class="p-3 bg-yellow-100 text-yellow-600 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                </div>
                             </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Uluslararası Evden Eve
+                                Taşımacılık</h5>
                         </div>
-                        <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Araç ve Motosiklet
-                            Taşımacılığı</h5>
-                    </div>
 
-                    <!-- Konteyner -->
-                    <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-indigo-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
-                        data-type="Konteyner Taşımacılığı">
-                        <div class="flex justify-center mb-3">
-                            <div class="p-3 bg-indigo-100 text-indigo-600 rounded-full">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
-                                    <path
-                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                                    </path>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
+                        <!-- Araç ve Motosiklet -->
+                        <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-red-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
+                            data-type="Araç ve Motosiklet Taşımacılığı">
+                            <div class="flex justify-center mb-3">
+                                <div class="p-3 bg-red-100 text-red-600 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="1" y="3" width="15" height="13"></rect>
+                                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                    </svg>
+                                </div>
                             </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Araç ve Motosiklet
+                                Taşımacılığı</h5>
                         </div>
-                        <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Konteyner Taşımacılığı
-                        </h5>
+
+                        <!-- Konteyner -->
+                        <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-indigo-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
+                            data-type="Konteyner Taşımacılığı">
+                            <div class="flex justify-center mb-3">
+                                <div class="p-3 bg-indigo-100 text-indigo-600 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                        </path>
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Konteyner Taşımacılığı
+                            </h5>
+                        </div>
+
+                        <!-- E-Ticaret Taşımacılığı -->
+                        <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-orange-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
+                            data-type="E-Ticaret Taşımacılığı">
+                            <div class="flex justify-center mb-3">
+                                <div class="p-3 bg-orange-100 text-orange-600 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                        <path d="m9 6 1 12"></path>
+                                        <path d="m20 6-1 12"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">E-Ticaret Taşımacılığı
+                            </h5>
+                        </div>
+
+                        <!-- Minivan Taşımacılığı -->
+                        <div class="w-full p-5 text-center bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md hover:border-teal-500 transition dark:bg-gray-700 dark:border-gray-600 option-card"
+                            data-type="Minivan Taşımacılığı">
+                            <div class="flex justify-center mb-3">
+                                <div class="p-3 bg-teal-100 text-teal-600 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M8 6v6"></path>
+                                        <path d="M15 6v6"></path>
+                                        <path d="M2 12h19.6"></path>
+                                        <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2L21 10H3l-.8 2.8c-.1.4-.2.8-.2 1.2 0 .4.1.8.2 1.2.3 1.1.8 2.8.8 2.8h3"></path>
+                                        <circle cx="7" cy="18" r="2"></circle>
+                                        <circle cx="17" cy="18" r="2"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h5 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Minivan Taşımacılığı
+                            </h5>
+                        </div>
                     </div>
                 </div>
-</div>
                 <!-- Buton   r
-                                <div class="text-center mt-8">
-                                    <button id="step1-next"
-                                        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-sm font-medium transition focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800">
-                                        Devam Et
-                                    </button>
-                                </div> -->
+                                    <div class="text-center mt-8">
+                                        <button id="step1-next"
+                                            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-sm font-medium transition focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800">
+                                            Devam Et
+                                        </button>
+                                    </div> -->
             </div>
 
 
@@ -183,7 +228,7 @@
 
                         <!-- Gönderici Bilgileri -->
                         <div class="col-span-1 md:col-span-3">
-                            <h6 class="text-blue-600 font-semibold mb-3">Gönderici Bilgileri</h6>
+                            <h6 class="kt-card-title">Gönderici Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Gönderici Adı</label>
@@ -206,7 +251,7 @@
 
                         <!-- Güzergah Bilgileri -->
                         <div class="col-span-1 md:col-span-3 mt-6">
-                            <h6 class="text-blue-600 font-semibold mb-3">Güzergah Bilgileri</h6>
+                            <h6 class="kt-card-title">Güzergah Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Nereden (Şehir)</label>
@@ -223,7 +268,7 @@
 
                         <!-- Alıcı Bilgileri -->
                         <div class="col-span-1 md:col-span-3 mt-6">
-                            <h6 class="text-blue-600 font-semibold mb-3">Alıcı Bilgileri</h6>
+                            <h6 class="kt-card-title">Alıcı Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Alıcı Adı</label>
@@ -252,7 +297,7 @@
 
                         <!-- Paket Bilgileri -->
                         <div class="col-span-1 md:col-span-3 mt-6">
-                            <h6 class="text-blue-600 font-semibold mb-3">Paket Bilgileri</h6>
+                            <h6 class="kt-card-title">Paket Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Ağırlık (kg)</label>
@@ -300,7 +345,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Yük Bilgileri -->
                         <div class="col-span-2">
-                            <h6 class="text-blue-600 font-bold mb-4">Yük Bilgileri</h6>
+                            <h6 class="kt-card-title">Yük Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Yükün Türü</label>
@@ -366,7 +411,7 @@
 
                         <!-- Yükleme/Boşaltma Şekli -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Yükleme/Boşaltma Şekli</h6>
+                            <h6 class="kt-card-title">Yükleme/Boşaltma Şekli</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Yükleme Şekli</label>
@@ -391,7 +436,7 @@
 
                         <!-- Yükleme Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Yükleme Bilgileri</h6>
+                            <h6 class="kt-card-title">Yükleme Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Yükleme Ülkesi</label>
@@ -421,7 +466,7 @@
 
                         <!-- Boşaltma Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Boşaltma Bilgileri</h6>
+                            <h6 class="kt-card-title">Boşaltma Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Boşaltma Ülkesi</label>
@@ -454,7 +499,7 @@
 
                         <!-- Araç Talebi ve Operasyonel Bilgiler -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Araç Talebi ve Operasyonel Bilgiler</h6>
+                            <h6 class="kt-card-title">Araç Talebi ve Operasyonel Bilgiler</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Araç Türü</label>
@@ -506,7 +551,7 @@
 
                         <!-- Ücret ve Fatura Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Ücret ve Fatura Bilgileri</h6>
+                            <h6 class="kt-card-title">Ücret ve Fatura Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Navlun (Taşıma) Ücreti</label>
@@ -561,7 +606,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Gönderici & Alıcı Firma Bilgileri -->
                         <div class="col-span-2">
-                            <h6 class="text-blue-600 font-bold mb-4">Gönderici & Alıcı Firma Bilgileri</h6>
+                            <h6 class="kt-card-title">Gönderici & Alıcı Firma Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Gönderici Firma</label>
@@ -576,7 +621,7 @@
 
                         <!-- Güzergah -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Güzergah</h6>
+                            <h6 class="kt-card-title">Güzergah</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Nereden</label>
@@ -591,7 +636,7 @@
 
                         <!-- Gümrük Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Gümrük Bilgileri</h6>
+                            <h6 class="kt-card-title">Gümrük Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Çıkış Gümrüğü</label>
@@ -606,7 +651,7 @@
 
                         <!-- Ticari Mal Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Ticari Mal Bilgileri</h6>
+                            <h6 class="kt-card-title">Ticari Mal Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Ticari Mal Türü</label>
@@ -641,7 +686,7 @@
 
                         <!-- Diğer Bilgiler -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Diğer Bilgiler</h6>
+                            <h6 class="kt-card-title">Diğer Bilgiler</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Toplam Değer</label>
@@ -703,7 +748,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Gönderici & Alıcı Bilgileri -->
                         <div class="col-span-2">
-                            <h6 class="text-blue-600 font-bold mb-4">Gönderici & Alıcı Bilgileri</h6>
+                            <h6 class="kt-card-title">Gönderici & Alıcı Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Gönderici Bilgileri</label>
@@ -718,7 +763,7 @@
 
                         <!-- Güzergah -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Güzergah</h6>
+                            <h6 class="kt-card-title">Güzergah</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Nereden</label>
@@ -733,7 +778,7 @@
 
                         <!-- Ürün Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Ürün Bilgileri</h6>
+                            <h6 class="kt-card-title">Ürün Bilgileri</h6>
                         </div>
                         <div class="col-span-2">
                             <label class="block mb-1 font-semibold">Ürün Listesi</label>
@@ -761,7 +806,7 @@
 
                         <!-- Diğer Bilgiler -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Diğer Bilgiler</h6>
+                            <h6 class="kt-card-title">Diğer Bilgiler</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Sigorta Talebi</label>
@@ -808,7 +853,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Adres Bilgileri -->
                         <div class="col-span-2">
-                            <h6 class="text-blue-600 font-bold mb-4">Adres Bilgileri</h6>
+                            <h6 class="kt-card-title">Adres Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Gönderici Adresi</label>
@@ -823,7 +868,7 @@
 
                         <!-- Güzergah -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Güzergah</h6>
+                            <h6 class="kt-card-title">Güzergah</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Nereden (Ülke/Şehir)</label>
@@ -838,7 +883,7 @@
 
                         <!-- Ev Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Ev Bilgileri</h6>
+                            <h6 class="kt-card-title">Ev Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Ev Tipi</label>
@@ -880,7 +925,7 @@
 
                         <!-- Hizmet Talepleri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Hizmet Talepleri</h6>
+                            <h6 class="kt-card-title">Hizmet Talepleri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Ambalaj Hizmeti</label>
@@ -917,7 +962,7 @@
 
                         <!-- Tarih Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Tarih Bilgileri</h6>
+                            <h6 class="kt-card-title">Tarih Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Yükleme Tarihi</label>
@@ -938,7 +983,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Gönderici & Alıcı -->
                         <div class="col-span-2">
-                            <h6 class="text-blue-600 font-bold mb-4">Gönderici & Alıcı Bilgileri</h6>
+                            <h6 class="kt-card-title">Gönderici & Alıcı Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Gönderici Bilgileri</label>
@@ -953,7 +998,7 @@
 
                         <!-- Güzergah -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Güzergah</h6>
+                            <h6 class="kt-card-title">Güzergah</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Nereden</label>
@@ -968,7 +1013,7 @@
 
                         <!-- Araç Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Araç Bilgileri</h6>
+                            <h6 class="kt-card-title">Araç Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Araç Türü</label>
@@ -999,7 +1044,7 @@
 
                         <!-- Araç Ölçüleri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Araç Boyutları</h6>
+                            <h6 class="kt-card-title">Araç Boyutları</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Uzunluk (cm)</label>
@@ -1019,7 +1064,7 @@
 
                         <!-- Diğer Bilgiler -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Diğer Bilgiler</h6>
+                            <h6 class="kt-card-title">Diğer Bilgiler</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Şasi Numarası (VIN)</label>
@@ -1061,7 +1106,7 @@
 
                         <!-- Tarih ve Yer Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Tarih ve Yer Bilgileri</h6>
+                            <h6 class="kt-card-title">Tarih ve Yer Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Yükleme Yeri</label>
@@ -1092,7 +1137,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Konteyner Bilgileri -->
                         <div class="col-span-2">
-                            <h6 class="text-blue-600 font-bold mb-4">Konteyner Bilgileri</h6>
+                            <h6 class="kt-card-title">Konteyner Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Konteyner Tipi</label>
@@ -1120,7 +1165,7 @@
 
                         <!-- Yük Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Yük Bilgileri</h6>
+                            <h6 class="kt-card-title">Yük Bilgileri</h6>
                         </div>
                         <div class="col-span-2">
                             <label class="block mb-1 font-semibold">Yük İçeriği</label>
@@ -1148,7 +1193,7 @@
 
                         <!-- Güzergah Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Güzergah Bilgileri</h6>
+                            <h6 class="kt-card-title">Güzergah Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Gideceği Ülke</label>
@@ -1173,7 +1218,7 @@
 
                         <!-- Tarih Bilgileri -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Tarih Bilgileri</h6>
+                            <h6 class="kt-card-title">Tarih Bilgileri</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Yükleme Tarihi</label>
@@ -1188,7 +1233,7 @@
 
                         <!-- Diğer Bilgiler -->
                         <div class="col-span-2 mt-6">
-                            <h6 class="text-blue-600 font-bold mb-4">Diğer Bilgiler</h6>
+                            <h6 class="kt-card-title">Diğer Bilgiler</h6>
                         </div>
                         <div>
                             <label class="block mb-1 font-semibold">Ambalaj/Paletleme</label>
@@ -1216,11 +1261,419 @@
                         </div>
                     </div>
                 </div>
+ 
+
+<!-- E-Ticaret Taşımacılığı Formu -->
+      <div class="form-section d-none" id="eticaret-form">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Gönderici Bilgileri -->
+              <div class="col-span-2">
+                  <h6 class="kt-card-title">Gönderici (Shipper) Bilgileri</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Gönderici Adı/Firma</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-sender-name"
+                      placeholder="Firma veya kişi adı">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Gönderici Vergi No (VKN/TCKN)</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-sender-tax"
+                      placeholder="Vergi numarası">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Gönderici Adresi</label>
+                  <textarea class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-sender-address" rows="2"
+                      placeholder="Tam adres (ülke, şehir, posta kodu dahil)"></textarea>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Gönderici Telefon/E-posta</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-sender-contact"
+                      placeholder="Telefon ve e-posta">
+              </div>
+
+              <!-- Alıcı Bilgileri -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Alıcı (Consignee) Bilgileri</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Alıcı Adı/Firma</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-receiver-name"
+                      placeholder="Alıcı firma veya kişi adı">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Alıcı Adresi (UK)</label>
+                  <textarea class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-receiver-address" rows="2"
+                      placeholder="İngiltere tam adresi (şehir, posta kodu dahil)"></textarea>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Alıcı Telefon/E-posta</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-receiver-contact"
+                      placeholder="Telefon ve e-posta">
+              </div>
+
+              <!-- Ürün Bilgileri -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Ürün Bilgileri</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Ürün Adı (TR)</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-product-name-tr"
+                      placeholder="Türkçe ürün adı">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Ürün Adı (EN)</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-product-name-en"
+                      placeholder="İngilizce ürün adı">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">HS Kodu</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-hs-code"
+                      placeholder="Gümrük tarife kodu">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Miktar & Birim Fiyat</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-quantity-price"
+                      placeholder="Adet x Birim fiyat">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Toplam Değer</label>
+                  <input type="number" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-total-value"
+                      placeholder="Toplam değer">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Para Birimi</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-currency">
+                      <option value="">Seçiniz</option>
+                      <option value="USD">USD</option>
+                      <option value="GBP">GBP</option>
+                      <option value="EUR">EUR</option>
+                      <option value="TRY">TRY</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Üretim Ülkesi</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-origin-country"
+                      placeholder="Menşe ülkesi">
+              </div>
+
+              <!-- Paket Bilgileri -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Paket Bilgileri</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Paket Ağırlığı (kg)</label>
+                  <input type="number" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-weight"
+                      placeholder="Toplam ağırlık">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Paket Ölçüleri (cm)</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-dimensions"
+                      placeholder="U x G x Y (cm)">
+              </div>
+
+              <!-- Evraklar ve Diğer -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Evrak ve Diğer Bilgiler</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Ticari Fatura</label>
+                  <input type="file" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-invoice"
+                      accept=".pdf,.jpg,.png">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">IOSS/UK VAT/EORI No (Opsiyonel)</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-vat-eori"
+                      placeholder="Vergi numaraları">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Sigorta</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-insurance">
+                      <option value="">Seçiniz</option>
+                      <option value="Var">Var</option>
+                      <option value="Yok">Yok</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Özel Notlar</label>
+                  <textarea class="w-full border border-gray-300 rounded-lg p-2" id="eticaret-notes" rows="3"
+                      placeholder="Ek bilgiler ve notlar"></textarea>
+              </div>
+          </div>
+      </div>
+
+      <!-- Minivan Taşımacılığı Formu -->
+      <div class="form-section d-none" id="minivan-form">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Şirket Bilgileri -->
+              <div class="col-span-2">
+                  <h6 class="kt-card-title">Şirket Bilgileri</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Şirket Adı</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-company-name"
+                      placeholder="Firma adı">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Vergi Numarası</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-tax-number"
+                      placeholder="VKN/TCKN">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Yetkili Kişi</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-authorized-person"
+                      placeholder="Yetkili kişi adı">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Telefon / E-posta</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-contact"
+                      placeholder="İletişim bilgileri">
+              </div>
+
+              <!-- İhracat & İthalat Bilgileri -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">İhracat & İthalat Bilgileri</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Incoterms</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="minivan-incoterms">
+                      <option value="">Seçiniz</option>
+                      <option value="EXW">EXW</option>
+                      <option value="FCA">FCA</option>
+                      <option value="CPT">CPT</option>
+                      <option value="CIP">CIP</option>
+                      <option value="DAP">DAP</option>
+                      <option value="DPU">DPU</option>
+                      <option value="DDP">DDP</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">TR İhracatçı Firma</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-tr-exporter"
+                      placeholder="Türkiye ihracatçı firma">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">UK İthalatçı Firma</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-uk-importer"
+                      placeholder="İngiltere ithalatçı firma">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">UK EORI Numarası</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-eori"
+                      placeholder="EORI veya XI EORI numarası">
+              </div>
+
+              <!-- Adres Bilgileri -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Adres Bilgileri</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Alım Adresi (+ Posta Kodu)</label>
+                  <textarea class="w-full border border-gray-300 rounded-lg p-2" id="minivan-pickup-address" rows="2"
+                      placeholder="Tam alım adresi ve posta kodu"></textarea>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Yetkili Kişi & Yükleme Saatleri</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-pickup-contact"
+                      placeholder="Yetkili kişi ve çalışma saatleri">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Teslim Adresi (+ Posta Kodu)</label>
+                  <textarea class="w-full border border-gray-300 rounded-lg p-2" id="minivan-delivery-address" rows="2"
+                      placeholder="Tam teslim adresi ve posta kodu"></textarea>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Yetkili Kişi & Teslim Saatleri</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-delivery-contact"
+                      placeholder="Yetkili kişi ve çalışma saatleri">
+              </div>
+
+              <!-- Yük Detayları -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Yük Detayları</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Yük Tanımı</label>
+                  <textarea class="w-full border border-gray-300 rounded-lg p-2" id="minivan-cargo-description" rows="2"
+                      placeholder="Yük detaylı açıklaması"></textarea>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Toplam Brüt Ağırlık (kg)</label>
+                  <input type="number" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-total-weight"
+                      placeholder="Toplam ağırlık">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Toplam Hacim (m³)</label>
+                  <input type="number" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-total-volume"
+                      placeholder="Toplam hacim">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Koli/Parça Sayısı ve Ölçüler</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-package-info"
+                      placeholder="Adet ve ölçüler">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Palet Bilgisi</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-pallet-info"
+                      placeholder="Palet ölçüleri ve stackable bilgisi">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">ADR (Tehlikeli Madde) Bilgisi</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="minivan-adr">
+                      <option value="">Seçiniz</option>
+                      <option value="Var">Var</option>
+                      <option value="Yok">Yok</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Sıcaklık Gereksinimi</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-temperature"
+                      placeholder="Özel sıcaklık ihtiyacı">
+              </div>
+
+              <!-- Araç ve Operasyon -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Araç ve Operasyon Gereksinimi</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Araç Tipi Tercihi</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="minivan-vehicle-type">
+                      <option value="">Seçiniz</option>
+                      <option value="Panel Van">Panel Van</option>
+                      <option value="Perdeli">Perdeli</option>
+                      <option value="Kapalı Kasa">Kapalı Kasa</option>
+                      <option value="Soğutmalı">Soğutmalı</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">İç Ölçü İhtiyacı (cm)</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-inner-dimensions"
+                      placeholder="U x G x Y (cm)">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Yükleme / Boşaltma Şekli</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="minivan-loading-type">
+                      <option value="">Seçiniz</option>
+                      <option value="Manuel">Manuel</option>
+                      <option value="Forklift">Forklift</option>
+                      <option value="Vinç">Vinç</option>
+                      <option value="Transpalet">Transpalet</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Ekipman İhtiyacı</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-equipment"
+                      placeholder="Lift, transpalet vb. ekipman">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Hizmet Türü</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="minivan-service-type">
+                      <option value="">Seçiniz</option>
+                      <option value="Dedike">Dedike</option>
+                      <option value="Parsiyel">Parsiyel</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Planlanan Çıkış Tarihi</label>
+                  <input type="date" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-departure-date">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Hedef Teslim Süresi (SLA)</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-delivery-time"
+                      placeholder="Gün cinsinden">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Güzergâh Tercihi</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="minivan-route">
+                      <option value="">Seçiniz</option>
+                      <option value="Ferry">Ferry</option>
+                      <option value="Eurotunnel">Eurotunnel</option>
+                      <option value="Fark Etmez">Fark Etmez</option>
+                  </select>
+              </div>
+
+              <!-- Gümrük & Evrak -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Gümrük & Evrak</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">TR Broker Bilgisi</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-tr-broker"
+                      placeholder="Türkiye gümrük müşaviri">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">UK Broker Bilgisi</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-uk-broker"
+                      placeholder="İngiltere gümrük müşaviri">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Gerekli Evraklar</label>
+                  <input type="file" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-documents"
+                      multiple accept=".pdf,.jpg,.png">
+              </div>
+
+              <!-- Sigorta & Güvenlik -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Sigorta & Güvenlik</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Mal Bedeli</label>
+                  <input type="number" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-goods-value"
+                      placeholder="Toplam mal bedeli">
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Para Birimi</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="minivan-currency">
+                      <option value="">Seçiniz</option>
+                      <option value="USD">USD</option>
+                      <option value="GBP">GBP</option>
+                      <option value="EUR">EUR</option>
+                      <option value="TRY">TRY</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Kargo Sigortası</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="minivan-cargo-insurance">
+                      <option value="">Seçiniz</option>
+                      <option value="Var">Var</option>
+                      <option value="Yok">Yok</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Özel Güvenlik/Takip Talepleri</label>
+                  <textarea class="w-full border border-gray-300 rounded-lg p-2" id="minivan-security" rows="2"
+                      placeholder="Güvenlik ve takip talepleri"></textarea>
+              </div>
+
+              <!-- Notlar ve Kısıtlar -->
+              <div class="col-span-2 mt-6">
+                  <h6 class="kt-card-title">Notlar ve Kısıtlar</h6>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Fiyatlandırma Yöntemi</label>
+                  <select class="w-full border border-gray-300 rounded-lg p-2" id="minivan-pricing-method">
+                      <option value="">Seçiniz</option>
+                      <option value="All-in">All-in</option>
+                      <option value="Detaylı">Detaylı</option>
+                  </select>
+              </div>
+              <div>
+                  <label class="block mb-1 font-semibold">Ödeme Vadesi</label>
+                  <input type="text" class="w-full border border-gray-300 rounded-lg p-2" id="minivan-payment-terms"
+                      placeholder="Ödeme vadesi ve şartları">
+              </div>
+              <div class="col-span-2">
+                  <label class="block mb-1 font-semibold">Özel Notlar</label>
+                  <textarea class="w-full border border-gray-300 rounded-lg p-2" id="minivan-special-notes" rows="3"
+                      placeholder="Ek bilgiler, kısıtlar ve özel talepler"></textarea>
+              </div>
+          </div>
+      </div>
 
 
                 <div class="text-center mt-4 flex justify-center gap-3">
                     <button type="button" id="step2-prev"
-                        class="bg-gray-400 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg"  style="background-color: #2a2a2a;">
+                        class="bg-gray-400 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg"
+                        style="background-color: #2a2a2a;">
                         Geri
                     </button>
                     <button type="button" id="step2-next"
@@ -1232,245 +1685,255 @@
             </div>
 
             <!-- Step 3: Teklif Özeti -->
-        <div class="step-content hidden " id="step-3-content">
-    <h5 class="text-center text-xl font-bold mb-6 step-header text-gray-800">
-        Teklif Özeti
-    </h5>
+            <div class="step-content hidden " id="step-3-content">
+                <h5 class="text-center text-xl font-bold mb-6 step-header text-gray-800">
+                    Teklif Özeti
+                </h5>
 
-    <!-- Özet Kartı -->
-    <div class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 p-5">
-        <div class="p-6 space-y-4">
-            <div class="flex justify-between items-center border-b pb-3">
-                <span class="text-gray-600 font-medium">Gönderi Türü:</span>
-                <span id="summary-gonderi-text" class="text-gray-900 font-semibold"></span>
-            </div>
-            <div>
-                <h6 class="text-gray-700 font-semibold mb-2">Detaylar</h6>
-                <div id="summary-details" 
-                     class="bg-gray-50 p-4 rounded-lg text-sm text-gray-700 space-y-2">
-                    <!-- JS ile doldurulacak -->
+                <!-- Özet Kartı -->
+                <div class="bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-200 p-5">
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-center border-b pb-3">
+                            <span class="text-gray-600 font-medium">Gönderi Türü:</span>
+                            <span id="summary-gonderi-text" class="text-gray-900 font-semibold"></span>
+                        </div>
+                        <div>
+                            <h6 class="text-gray-700 font-semibold mb-2">Detaylar</h6>
+                            <div id="summary-details" class="bg-gray-50 p-4 rounded-lg text-sm text-gray-700 space-y-2">
+                                <!-- JS ile doldurulacak -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Butonlar -->
+                <div class="flex justify-center gap-4 mt-8 p-5">
+                    <button type="button" id="step3-prev"
+                        class="bg-gray-400 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded-xl shadow p-5"
+                        style="background-color: #2a2a2a;">
+                        Geri
+                    </button>
+                    <button type="button" id="submit-form"
+                        class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-xl shadow  p-5"
+                        style="background-color: #28a745;">
+                        Teklif Al
+                    </button>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Butonlar -->
-    <div class="flex justify-center gap-4 mt-8 p-5">
-        <button type="button" id="step3-prev"
-            class="bg-gray-400 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded-xl shadow p-5" style="background-color: #2a2a2a;">
-            Geri
-        </button>
-        <button type="button" id="submit-form"
-            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-xl shadow  p-5" style="background-color: #28a745;">
-            Teklif Al
-        </button>
-    </div>
-</div>
 
 
         </form>
     </div>
 
-   <script>
-document.addEventListener('DOMContentLoaded', function() {
-    let selectedGonderiType = '';
-    let currentStep = 1;
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let selectedGonderiType = '';
+            let currentStep = 1;
 
-    // Açılışta sadece Step-1 görünür
-    document.querySelectorAll('.step-content').forEach(c => c.classList.add('hidden'));
-    document.getElementById('step-1-content').classList.remove('hidden');
+            // Açılışta sadece Step-1 görünür
+            document.querySelectorAll('.step-content').forEach(c => c.classList.add('hidden'));
+            document.getElementById('step-1-content').classList.remove('hidden');
 
-    // Formları gizle
-    document.querySelectorAll('.form-section').forEach(f => f.classList.add('hidden'));
-
-    // Step-1 seçenek kartları
-    const optionCards = document.querySelectorAll('.option-card');
-    optionCards.forEach(card => {
-        card.addEventListener('click', function() {
-            optionCards.forEach(c => c.classList.remove('selected'));
-            this.classList.add('selected');
-            selectedGonderiType = this.getAttribute('data-type');
-            goToStep(2);
-        });
-    });
-
-    // Step-2 butonları
-    document.getElementById('step2-prev').addEventListener('click', () => goToStep(1));
-    document.getElementById('step2-next').addEventListener('click', () => goToStep(3));
-
-    // Step-3 butonları
-    document.getElementById('step3-prev').addEventListener('click', () => goToStep(2));
-    document.getElementById('submit-form').addEventListener('click', submitForm);
-
-    // Adım değiştirme
-    function goToStep(step) {
-        if (step === 2 && !selectedGonderiType) {
-            Swal.fire("Lütfen bir gönderi türü seçin!");
-            return;
-        }
-
-        if (step === 2) {
+            // Formları gizle
             document.querySelectorAll('.form-section').forEach(f => f.classList.add('hidden'));
-            showRelevantForm();
-            document.getElementById('selected-type-display').textContent = selectedGonderiType;
-        }
 
-        if (step === 3) {
-            if (!validateStep2()) return;
-            updateSummary();
-        }
-
-        // Step içeriklerini gizle/aç
-        document.querySelectorAll('.step-content').forEach(c => c.classList.add('hidden'));
-        document.getElementById(`step-${step}-content`).classList.remove('hidden');
-
-        // Progress bar güncelle
-        document.getElementById('progress-bar').style.width = `${(step / 3) * 100}%`;
-        currentStep = step;
-    }
-
-    // Seçime göre ilgili formu göster
-    function showRelevantForm() {
-        if (!selectedGonderiType) return;
-
-        const forms = {
-            'Kargo ve Paket Taşımacılığı': 'kargo-form',
-            'Komple Tır': 'tir-form',
-            'Ticari Eşya Taşımacılığı': 'ticari-form',
-            'Yeni Mobilya Taşımacılığı': 'mobilya-form',
-            'Uluslararası Evden Eve Taşımacılık': 'evden-eve-form',
-            'Araç ve Motosiklet Taşımacılığı': 'arac-form',
-            'Konteyner Taşımacılığı': 'konteyner-form'
-        };
-
-        const formId = forms[selectedGonderiType];
-        if (formId) document.getElementById(formId).classList.remove('hidden');
-    }
-
-    // Step-2 doğrulama
-    function validateStep2() {
-        let requiredFields = [];
-
-        switch (selectedGonderiType) {
-            case 'Kargo ve Paket Taşımacılığı':
-                requiredFields = ['kargo-from', 'kargo-to', 'kargo-weight'];
-                break;
-            case 'Ticari Eşya Taşımacılığı':
-                requiredFields = ['ticari-from', 'ticari-to', 'ticari-total-weight'];
-                break;
-            case 'Yeni Mobilya Taşımacılığı':
-                requiredFields = ['mobilya-from', 'mobilya-to', 'mobilya-weight'];
-                break;
-            case 'Uluslararası Evden Eve Taşımacılık':
-                requiredFields = ['evden-from', 'evden-to', 'evden-volume'];
-                break;
-            case 'Araç ve Motosiklet Taşımacılığı':
-                requiredFields = ['arac-from', 'arac-to', 'arac-brand', 'arac-model'];
-                break;
-            case 'Konteyner Taşımacılığı':
-                requiredFields = ['konteyner-destination-country', 'konteyner-origin-port', 'konteyner-destination-port'];
-                break;
-        }
-
-        for (const id of requiredFields) {
-            const field = document.getElementById(id);
-            if (!field || !field.value.trim()) {
-                const label = field && field.previousElementSibling ? field.previousElementSibling.innerText : id;
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Eksik Bilgi',
-                    text: `Lütfen "${label}" alanını doldurun.`
+            // Step-1 seçenek kartları
+            const optionCards = document.querySelectorAll('.option-card');
+            optionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    optionCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedGonderiType = this.getAttribute('data-type');
+                    goToStep(2);
                 });
-                return false;
+            });
+
+            // Step-2 butonları
+            document.getElementById('step2-prev').addEventListener('click', () => goToStep(1));
+            document.getElementById('step2-next').addEventListener('click', () => goToStep(3));
+
+            // Step-3 butonları
+            document.getElementById('step3-prev').addEventListener('click', () => goToStep(2));
+            document.getElementById('submit-form').addEventListener('click', submitForm);
+
+            // Adım değiştirme
+            function goToStep(step) {
+                if (step === 2 && !selectedGonderiType) {
+                    Swal.fire("Lütfen bir gönderi türü seçin!");
+                    return;
+                }
+
+                if (step === 2) {
+                    document.querySelectorAll('.form-section').forEach(f => f.classList.add('hidden'));
+                    showRelevantForm();
+                    document.getElementById('selected-type-display').textContent = selectedGonderiType;
+                }
+
+                if (step === 3) {
+                    if (!validateStep2()) return;
+                    updateSummary();
+                }
+
+                // Step içeriklerini gizle/aç
+                document.querySelectorAll('.step-content').forEach(c => c.classList.add('hidden'));
+                document.getElementById(`step-${step}-content`).classList.remove('hidden');
+
+                // Progress bar güncelle
+                document.getElementById('progress-bar').style.width = `${(step / 3) * 100}%`;
+                currentStep = step;
             }
-        }
-        return true;
-    }
 
-    // Step-3 özet güncelle
-    function updateSummary() {
-        document.getElementById('summary-gonderi-text').textContent = selectedGonderiType;
+            // Seçime göre ilgili formu göster
+            function showRelevantForm() {
+                if (!selectedGonderiType) return;
 
-        let summaryHTML = "";
-        const activeForm = document.querySelector('.form-section:not(.hidden)');
-        if (activeForm) {
-            const formInputs = activeForm.querySelectorAll('input, select, textarea');
-            formInputs.forEach(input => {
-                const label = input.previousElementSibling ? input.previousElementSibling.innerText : input.id;
-                summaryHTML += `
+                const forms = {
+                    'Kargo ve Paket Taşımacılığı': 'kargo-form',
+                    'Komple Tır': 'tir-form',
+                    'Ticari Eşya Taşımacılığı': 'ticari-form',
+                    'Yeni Mobilya Taşımacılığı': 'mobilya-form',
+                    'Uluslararası Evden Eve Taşımacılık': 'evden-eve-form',
+                    'Araç ve Motosiklet Taşımacılığı': 'arac-form',
+                    'Konteyner Taşımacılığı': 'konteyner-form',
+                            'E-Ticaret Taşımacılığı': 'eticaret-form',
+        'Minivan Taşımacılığı': 'minivan-form'
+
+                };
+
+                const formId = forms[selectedGonderiType];
+                if (formId) document.getElementById(formId).classList.remove('hidden');
+            }
+
+            // Step-2 doğrulama
+            function validateStep2() {
+                let requiredFields = [];
+
+                switch (selectedGonderiType) {
+                    case 'Kargo ve Paket Taşımacılığı':
+                        requiredFields = ['kargo-from', 'kargo-to', 'kargo-weight'];
+                        break;
+                    case 'Ticari Eşya Taşımacılığı':
+                        requiredFields = ['ticari-from', 'ticari-to', 'ticari-total-weight'];
+                        break;
+                    case 'Yeni Mobilya Taşımacılığı':
+                        requiredFields = ['mobilya-from', 'mobilya-to', 'mobilya-weight'];
+                        break;
+                    case 'Uluslararası Evden Eve Taşımacılık':
+                        requiredFields = ['evden-from', 'evden-to', 'evden-volume'];
+                        break;
+                    case 'Araç ve Motosiklet Taşımacılığı':
+                        requiredFields = ['arac-from', 'arac-to', 'arac-brand', 'arac-model'];
+                        break;
+                    case 'Konteyner Taşımacılığı':
+                        requiredFields = ['konteyner-destination-country', 'konteyner-origin-port',
+                            'konteyner-destination-port'
+                        ];
+                        break;
+                }
+
+                for (const id of requiredFields) {
+                    const field = document.getElementById(id);
+                    if (!field || !field.value.trim()) {
+                        const label = field && field.previousElementSibling ? field.previousElementSibling
+                            .innerText : id;
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Eksik Bilgi',
+                            text: `Lütfen "${label}" alanını doldurun.`
+                        });
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            // Step-3 özet güncelle
+            function updateSummary() {
+                document.getElementById('summary-gonderi-text').textContent = selectedGonderiType;
+
+                let summaryHTML = "";
+                const activeForm = document.querySelector('.form-section:not(.hidden)');
+                if (activeForm) {
+                    const formInputs = activeForm.querySelectorAll('input, select, textarea');
+                    formInputs.forEach(input => {
+                        const label = input.previousElementSibling ? input.previousElementSibling
+                            .innerText : input.id;
+                        summaryHTML += `
                     <div class="flex justify-between border-b pb-2">
                         <span class="text-gray-600">${label}</span>
                         <span class="text-gray-900 font-medium">${input.value || '-'}</span>
                     </div>
                 `;
-            });
-        }
-        document.getElementById('summary-details').innerHTML = summaryHTML;
-    }
-
-    // Form gönderme
-    function submitForm() {
-        const submitButton = document.getElementById('submit-form');
-        submitButton.disabled = true;
-        submitButton.innerText = "Gönderiliyor...";
-
-        const postData = {
-            offer_type: selectedGonderiType,
-            details: {}
-        };
-
-        const activeForm = document.querySelector('.form-section:not(.hidden)');
-        if (activeForm) {
-            const formInputs = activeForm.querySelectorAll('input, select, textarea');
-            formInputs.forEach(input => {
-                const label = input.previousElementSibling ? input.previousElementSibling.innerText : input.id;
-                postData.details[label] = input.value;
-            });
-        }
-
-        const csrfToken = document.querySelector('input[name="_token"]');
-        if (!csrfToken) {
-            alert("CSRF token bulunamadı!");
-            return;
-        }
-
-        fetch("{{ route('price.offer.store') }}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': csrfToken.value,
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(postData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                Swal.fire("Başarılı", data.message, "success").then(() => location.reload());
-            } else {
-                Swal.fire("Hata", data.message || "Bir sorun oluştu", "error");
+                    });
+                }
+                document.getElementById('summary-details').innerHTML = summaryHTML;
             }
-        })
-        .catch(error => {
-            console.error("Fetch hatası:", error);
-            Swal.fire("Ağ Hatası!", "Sunucuya bağlanırken bir sorun oluştu.", "error");
-        })
-        .finally(() => {
-            submitButton.disabled = false;
-            submitButton.innerText = "Teklif Al";
-        });
-    }
 
-    // Step-2 alanlarında değişiklik oldukça özet güncellensin
-    function attachFormListeners() {
-        const allFields = document.querySelectorAll('#step-2-content input, #step-2-content select, #step-2-content textarea');
-        allFields.forEach(element => {
-            element.addEventListener('input', updateSummary);
-            element.addEventListener('change', updateSummary);
+            // Form gönderme
+            function submitForm() {
+                const submitButton = document.getElementById('submit-form');
+                submitButton.disabled = true;
+                submitButton.innerText = "Gönderiliyor...";
+
+                const postData = {
+                    offer_type: selectedGonderiType,
+                    details: {}
+                };
+
+                const activeForm = document.querySelector('.form-section:not(.hidden)');
+                if (activeForm) {
+                    const formInputs = activeForm.querySelectorAll('input, select, textarea');
+                    formInputs.forEach(input => {
+                        const label = input.previousElementSibling ? input.previousElementSibling
+                            .innerText : input.id;
+                        postData.details[label] = input.value;
+                    });
+                }
+
+                const csrfToken = document.querySelector('input[name="_token"]');
+                if (!csrfToken) {
+                    alert("CSRF token bulunamadı!");
+                    return;
+                }
+
+                fetch("{{ route('price.offer.store') }}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken.value,
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(postData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire("Başarılı", data.message, "success").then(() => location.reload());
+                        } else {
+                            Swal.fire("Hata", data.message || "Bir sorun oluştu", "error");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Fetch hatası:", error);
+                        Swal.fire("Ağ Hatası!", "Sunucuya bağlanırken bir sorun oluştu.", "error");
+                    })
+                    .finally(() => {
+                        submitButton.disabled = false;
+                        submitButton.innerText = "Teklif Al";
+                    });
+            }
+
+            // Step-2 alanlarında değişiklik oldukça özet güncellensin
+            function attachFormListeners() {
+                const allFields = document.querySelectorAll(
+                    '#step-2-content input, #step-2-content select, #step-2-content textarea');
+                allFields.forEach(element => {
+                    element.addEventListener('input', updateSummary);
+                    element.addEventListener('change', updateSummary);
+                });
+            }
+            attachFormListeners();
         });
-    }
-    attachFormListeners();
-});
-</script>
+    </script>
 
 @endsection

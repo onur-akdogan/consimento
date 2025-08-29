@@ -9,24 +9,18 @@ use Illuminate\Support\Facades\Validator; // <-- EKLENMESİ GEREKEN SATIR BU
 use Auth;
 class PriceOfferController extends Controller
 {
-    public function index(){
-        $ulkes=Ulke::get();
-        return view("pages.priceoffer",compact("ulkes"));
+    public function index()
+    {
+        $ulkes = Ulke::get();
+        return view("pages.priceoffer", compact("ulkes"));
     }
 
     public function indexadmin()
     {
         // Giriş yapan kullanıcının admin olup olmadığını kontrol et
-        if (Auth::user()->is_admin) {
-            // Admin ise: Tüm teklifleri, ilişkili kullanıcı bilgisiyle birlikte al.
-            // latest() -> en yeni olanı en üste getirir.
-            // paginate() -> Sayfalama yapar, sayfa başına 15 kayıt gösterir.
-            $offers = PriceOffer::with('user')->latest()->paginate(15);
-        } else {
-            // Normal kullanıcı ise: Sadece kendi tekliflerini al.
-            $offers = PriceOffer::where('user_id', Auth::id())->latest()->paginate(15);
-        }
-         // Verileri 'price_offers.index' view'ine gönder
+        $offers = PriceOffer::with('user')->latest()->paginate(300000);
+
+        // Verileri 'price_offers.index' view'ine gönder
         return view('pages.price_offers', compact('offers'));
     }
 
